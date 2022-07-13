@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { DateTime } from 'luxon'
+import Header from "./Header";
 import './News-css.css'
-
 
 // CLASE 06/06
 
 function Main() {
-    const search = 'messi'
-    const pages = 7
+    const search = 'argentina'
+    const pages = 10
+    const language = 'es'
     
-    const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+    const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
     console.log(process.env.NEWS_API_KEY)
     const [toDos, setToDos] = useState()
     const [totalResult, setResult] = useState()
@@ -20,14 +21,11 @@ function Main() {
         
         setToDos(responseJSON)  // response
         setResult(responseJSON.totalResults)    // total results
-
     }
 
     useEffect( () =>{
         fetchApi()
     }, [])  // array vacio: el useEffect no tiene dependencias
-
-    
 
     const transformDate = (time) => {
         // function to transform date ISO from News API to a local String Date
@@ -40,13 +38,9 @@ function Main() {
         //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     }
 
-
-
-
-
     return(
         <>
-            <h3 className="news-header">Viendo {pages} noticias de {totalResult} resultados</h3>
+            <Header />
             <div className="conteiner-news">
                 { !toDos ? 'Cargando...' :
 
