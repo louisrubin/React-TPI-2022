@@ -1,22 +1,29 @@
-#main{
+#header{
+    position: fixed;
     display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+
     flex-direction: column;
     align-items: flex-start;
     background-color: #5cc7b2;
-    padding-left: 12px;
+    padding: 0 35px 0 20px;
 }
 h1 {
     font-family: 'EB Garamond';
     font-size: 2.3em;
     margin: 0;
 }
-#sub-info {
+#header-sub-info {
     display: flex;
-    width: 100%;
+    width: 98.5%;
     justify-content: space-between;
     margin-bottom: 5px;
 }
-#sub-info p {
+#header-sub-info p {
     font-family: 'Oswald';
     font-weight: 400;
     font-size: 0.95em;
