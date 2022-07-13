@@ -6,7 +6,9 @@ import Main from "./components/News";
 class App extends Component {
   render() {
     return (
-      <Main />
+      <>
+        <Main />
+      </>
     )
     
   }
