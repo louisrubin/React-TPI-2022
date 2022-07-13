@@ -46,8 +46,7 @@ function Main() {
 
     return(
         <>
-            <h1>BUSQUEDA: "{search}"</h1>
-            <h3>RESULTADOS TOTALES: {totalResult}</h3>
+            <h3 className="news-header">Viendo {pages} noticias de {totalResult} resultados</h3>
             <div className="conteiner-news">
                 { !toDos ? 'Cargando...' :
 

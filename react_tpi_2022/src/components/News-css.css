@@ -9,6 +9,7 @@
 }
 
 .box-news {
+    border-radius: 6px;
     max-width: 30%;
 }
 
@@ -20,7 +21,7 @@
 }
 
 .img-news:hover {
-    transform: scale(1.05, 1.05);
+    transform: scale(1.035, 1.035);
 }
 
 .box-news a {
@@ -35,5 +36,8 @@
     font-size: 11px;
 }
 
-
+.news-header {
+    text-align: center;
+    font-size: 15px;
+}
 
