@@ -13,13 +13,25 @@
 
 .img-news {
     width: 100%;
+    
     border-radius: 4px;
+    transition: 0.4s;
+}
+
+.img-news:hover {
+    transform: scale(1.05, 1.05);
 }
 
 .box-news a {
     text-decoration: none;
     text-align: justify;
     color: #000;
+}
+.box-news p {
+    margin-bottom: 10px;
+}
+.box-news small {
+    font-size: 11px;
 }
 
 

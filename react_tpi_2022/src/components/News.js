@@ -28,14 +28,20 @@ function Main() {
     }, [])  // array vacio: el useEffect no tiene dependencias
 
     
-    const formatingDate = (date) => {
-        const string = DateTime.toString(date)
-        const formated = DateTime.fromISO(string, {
-            zone: 'system',
-        })
-        console.log(formated)
-        return formated
+
+    const transformDate = (time) => {
+        // function to transform date ISO from News API to a local String Date
+        const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
+        const newDate = Date.setLocale().toLocaleString()
+
+        const Time = `${newDate} a las ${Date.c.hour}:${Date.c.minute}hs`
+        return Time
+        
+        //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     }
+
+
+
 
 
     return(
@@ -44,14 +50,15 @@ function Main() {
             <h3>RESULTADOS TOTALES: {totalResult}</h3>
             <div className="conteiner-news">
                 { !toDos ? 'Cargando...' :
-                    toDos.articles.map( (news, index) => {
 
+                    toDos.articles.map( (news, index) => {
+                        console.log(news.publishedAt)
                         return(
-                            <div className="box-news">
-                                <a href={news.url}>
-                                    <img src={news.urlToImage} className="img-news"  />
-                                    <p key={index}> <b>{news.title}</b>  </p> 
-                                    <small>{ news.publishedAt }</small>
+                            <div className="box-news" key={index}>
+                                <a href={news.url} target="_blank" rel="noopener noreferrer">
+                                    <img className="img-news" src={news.urlToImage}  />
+                                    <p> <b>{news.title}</b>  </p> 
+                                    <small>Publicado el: { transformDate(news.publishedAt) }</small>
                                 </a>
                                 
                             </div>
