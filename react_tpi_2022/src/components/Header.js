@@ -1,9 +1,35 @@
+import { useEffect, useState } from 'react'
 import gh from '../assets/github.svg'
 import lk from '../assets/linkedin.svg'
 import yt from '../assets/youtube.svg'
 import './Header-css.css'
 
+
 function Header() {
+
+    const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
+    const [location, setLocation ] = useState()
+    const [current, setCurrent ] = useState()
+    
+    const fetchApi = async () => {
+        // WEATHER API
+            const response = await fetch(url)
+            const responseJSON = await response.json()
+            console.log('RESPONSE JSON ', responseJSON)
+
+            await setLocation(responseJSON.location)    // undefined
+            await setCurrent(responseJSON.current)
+
+            
+            const spanInfo = document.getElementById("span-weather")
+            spanInfo.innerHTML = `${location.name} - ${current.temp_c}°C`
+            //document.getElementById("img").inerHTML = current.condition.icon
+    }
+
+    useEffect( () => {
+        fetchApi()
+    }, [location] )
+
     return(
         <>
         <style>
@@ -13,7 +39,8 @@ function Header() {
         <div id="header">
             <h1>INFOR-NOTICIAS</h1>
             <div id="header-sub-info">
-                <p>Resistencia - 12°C - Dolar Blue: $297</p>
+                <span id="span-weather"></span>
+                
             
                 <div id="assets">
                     <a href='https://www.linkedin.com/in/luisrubin/' placeholder='Linkedin' target="_blank">

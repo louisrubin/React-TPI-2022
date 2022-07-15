@@ -11,7 +11,6 @@ function Main() {
     const language = 'es'
     
     const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
-    console.log(process.env.NEWS_API_KEY)
     const [toDos, setToDos] = useState()
     const [totalResult, setResult] = useState()
 
@@ -23,6 +22,7 @@ function Main() {
         setResult(responseJSON.totalResults)    // total results
     }
 
+    // useEffect se ejecuta luego de montar el componente (componentDidMount)
     useEffect( () =>{
         fetchApi()
     }, [])  // array vacio: el useEffect no tiene dependencias
@@ -40,7 +40,6 @@ function Main() {
 
     return(
         <>
-            <Header />
             <div className="conteiner-news">
                 { !toDos ? 'Cargando...' :
 
