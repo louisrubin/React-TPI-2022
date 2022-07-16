@@ -8,27 +8,24 @@ import './Header-css.css'
 function Header() {
 
     const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
-    const [location, setLocation ] = useState()
-    const [current, setCurrent ] = useState()
+    const [Resp, setResponse ] = useState(' ')
     
     const fetchApi = async () => {
         // WEATHER API
             const response = await fetch(url)
             const responseJSON = await response.json()
-            console.log('RESPONSE JSON ', responseJSON)
 
-            await setLocation(responseJSON.location)    // undefined
-            await setCurrent(responseJSON.current)
+            await setResponse(responseJSON)
 
-            
+            console.log('RESP ',Resp)
             const spanInfo = document.getElementById("span-weather")
-            spanInfo.innerHTML = `${location.name} - ${current.temp_c}°C`
-            //document.getElementById("img").inerHTML = current.condition.icon
+            spanInfo.innerHTML = `${Resp.location.name} - ${Resp.current.temp_c}°C`
     }
 
     useEffect( () => {
-        fetchApi()
-    }, [location] )
+         fetchApi()
+    }, [Resp === ' '] )     // una vez que se le asigna un valor a Resp ya no se vuelve a ejecutar fetchApi()
+
 
     return(
         <>
@@ -40,7 +37,7 @@ function Header() {
             <h1>INFOR-NOTICIAS</h1>
             <div id="header-sub-info">
                 <span id="span-weather"></span>
-                
+                <img  />
             
                 <div id="assets">
                     <a href='https://www.linkedin.com/in/luisrubin/' placeholder='Linkedin' target="_blank">
