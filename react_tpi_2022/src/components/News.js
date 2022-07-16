@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { DateTime } from 'luxon'
-import Header from "./Header";
-import './News-css.css'
+import NewsBox from "./NewsBox";
 
 // CLASE 06/06
 
@@ -25,9 +24,9 @@ function Main() {
     // useEffect se ejecuta luego de montar el componente (componentDidMount)
     useEffect( () =>{
         fetchApi()
-    }, [])  // array vacio: el useEffect no tiene dependencias
+    }, [])  // array vacio: el useEffect no tiene dependencias lo cual se ejecuta 1 sola vez al montar todo
 
-    const transformDate = (time) => {
+    const transformDate = time => {
         // function to transform date ISO from News API to a local String Date
         const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
         const newDate = Date.toLocaleString(DateTime.DATE_MED)     // 'dd-MM-yyyy- hh:mm' (formato 12hs)
@@ -43,16 +42,11 @@ function Main() {
             <div className="conteiner-news">
                 { !toDos ? 'Cargando...' :
 
-                    toDos.articles.map( (news, index) => {
+                    toDos.articles.map( (news, index ) => {
+                        const publishedAt = transformDate(news.publishedAt)
+                        const obj = { news, index, publishedAt} // un objeto como param
                         return(
-                            <div className="box-news" key={index}>
-                                <a href={news.url} target="_blank" rel="noopener noreferrer">
-                                    <img className="img-news" src={news.urlToImage}  />
-                                    <small>Publicado: { transformDate(news.publishedAt) } - </small>
-                                    <small style={ {textDecoration: 'underline'} }>{ news.source.name }</small>
-                                    <p> <b>{news.title}</b>  </p> 
-                                </a>                                
-                            </div>
+                            NewsBox(obj)
                         )
                     })
                 }

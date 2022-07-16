@@ -6,9 +6,12 @@
 
     box-sizing: border-box;
     z-index: 100;
-    background-color: #5cc7b2;
+    background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  );
+    /* background-color: #5cc7b2; */
+    /* background-image: repeating-linear-gradient(to bottom, rgb(110, 237, 211) 10%,  rgb(5, 166, 183) 10% ); */
     padding: 0 10px 0 20px;
     box-shadow: 0 2px 4px rgba(0,0,0, 0.35);
+    
 }
 #over {
     display: flex;

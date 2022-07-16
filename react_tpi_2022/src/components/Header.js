@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import gh from '../assets/github.svg'
 import lk from '../assets/linkedin.svg'
 import yt from '../assets/youtube.svg'
+import searchWhite from '../assets/search1.svg'
+import searchBlack from '../assets/search2.svg'
 import './Header-css.css'
 
 
@@ -17,7 +19,6 @@ function Header() {
 
             await setResponse(responseJSON)
 
-            console.log('RESP ',Resp)
             const spanInfo = document.getElementById("div-weather")
             spanInfo.innerHTML = `<p style="display: inline;">${Resp.location.name} - ${Resp.current.temp_c}°C</p>  <img id="weather-icon" src=${Resp.current.condition.icon} />`
     }
@@ -36,6 +37,12 @@ function Header() {
         <div id="header">
             <div id='over'>
                 <h1>INFOR-NOTICIAS</h1>
+                <div>
+                    <label>Buscar Noticia</label>
+                    <input />
+                    <img src={searchWhite} />
+                    <img src={searchBlack} />
+                </div>
                 <a href=''>ABOUT</a>
             </div>
             

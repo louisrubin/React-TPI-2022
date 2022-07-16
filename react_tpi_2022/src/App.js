@@ -1,12 +1,14 @@
 import { Component } from "react";
 
 import './App.css'
+import Header from "./components/Header";
 import Main from "./components/News";
 
 class App extends Component {
   render() {
     return (
       <>
+        <Header />
         <Main />
       </>
     )

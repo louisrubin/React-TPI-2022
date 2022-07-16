@@ -1,9 +1,9 @@
 .conteiner-news {
     position: relative;
+    display: flex;
     z-index: 90;
 
-    top: 100px;
-    display: flex;
+    top: 120px;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
@@ -12,22 +12,18 @@
     margin-bottom: 40px;
 }
 
-/* no sabia que se podía comentar en CSS XDD 
-    pensaba que no :v 
-*/
-
 .box-news {
     border-radius: 6px;
     max-width: 30%;
 }
 
 .img-news {
-    width: 100%;
+    width: 323.75px;
+    height: 181.97px;
     
     border-radius: 4px;
     transition: 0.4s;
 }
-
 .img-news:hover {
     transform: scale(1.035, 1.035);
 }
@@ -42,10 +38,5 @@
 }
 .box-news small {
     font-size: 11px;
-}
-
-.news-header {
-    text-align: center;
-    font-size: 15px;
 }
 
