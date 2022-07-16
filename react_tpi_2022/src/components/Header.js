@@ -34,7 +34,11 @@ function Header() {
         </style>
         
         <div id="header">
-            <h1>INFOR-NOTICIAS</h1>
+            <div id='over'>
+                <h1>INFOR-NOTICIAS</h1>
+                <a href=''>ABOUT</a>
+            </div>
+            
             <div id="header-sub-info">
                 <div id="div-weather"></div>
             
