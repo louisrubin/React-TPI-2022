@@ -18,8 +18,8 @@ function Header() {
             await setResponse(responseJSON)
 
             console.log('RESP ',Resp)
-            const spanInfo = document.getElementById("span-weather")
-            spanInfo.innerHTML = `${Resp.location.name} - ${Resp.current.temp_c}°C`
+            const spanInfo = document.getElementById("div-weather")
+            spanInfo.innerHTML = `<p style="display: inline;">${Resp.location.name} - ${Resp.current.temp_c}°C</p>  <img id="weather-icon" src=${Resp.current.condition.icon} />`
     }
 
     useEffect( () => {
@@ -36,8 +36,7 @@ function Header() {
         <div id="header">
             <h1>INFOR-NOTICIAS</h1>
             <div id="header-sub-info">
-                <span id="span-weather"></span>
-                <img  />
+                <div id="div-weather"></div>
             
                 <div id="assets">
                     <a href='https://www.linkedin.com/in/luisrubin/' placeholder='Linkedin' target="_blank">
