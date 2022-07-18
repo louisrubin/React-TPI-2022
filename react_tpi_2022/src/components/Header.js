@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
-import gh from '../assets/github.svg'
-import lk from '../assets/linkedin.svg'
-import yt from '../assets/youtube.svg'
 import searchWhite from '../assets/search1.svg'
 import searchBlack from '../assets/search2.svg'
-import './Header-css.css'
+import './Header.css'
 
 
 function Header() {
@@ -48,19 +45,6 @@ function Header() {
             
             <div id="header-sub-info">
                 <div id="div-weather"></div>
-            
-                <div id="assets">
-                    <a href='https://www.linkedin.com/in/luisrubin/' placeholder='Linkedin' target="_blank">
-                        <img src={lk}/>
-                    </a>
-                    <a href='https://github.com/louisrubin' placeholder='GitHub' target="_blank">
-                        <img src={gh} />
-                    </a>
-                    <a href='coming-soon' placeholder='YouTube Video' target="_blank">
-                        <img src={yt} />
-                    </a>
-                </div>
-            
             </div>
         </div>
         </>

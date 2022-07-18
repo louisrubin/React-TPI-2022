@@ -4,12 +4,8 @@ import './App.css'
 import Header from "./components/Header";
 import Main from "./components/News";
 import { Link, Route, Routes, useParams } from 'react-router-dom'
+import Footer from "./components/Footer";
 
-/* 
-        SEGUIR VIENDO EL VIDEO:
-        https://www.youtube.com/watch?v=iPNt12IdbCU&ab_channel=midulive
-
-*/
 
 class App extends Component {
   render() {
@@ -19,7 +15,7 @@ class App extends Component {
         <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/about' element={<Header />} />
-            <Route path="*" element={<h1>Not found</h1>} />   {// esto devuelve un status 200 y no un 404}
+            <Route path="*" element={<h1>Not found</h1>} /> 
         </Routes>
         
         <nav style={{marginTop: '150px'}}>
@@ -29,6 +25,7 @@ class App extends Component {
           </ul>
         </nav>
         
+        <Footer />
       </>
     )
     
