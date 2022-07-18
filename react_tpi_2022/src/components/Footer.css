@@ -30,8 +30,17 @@ footer {
     height: 30px;
     background-color: rgb(202, 202, 202);
     border-radius: 50%;
+    user-select: none;
 }
 
+#copyright {
+    font-size: 0.8em;
+    user-select: none;
+    text-align: center;
+    font-family: 'Osweld';
+    padding: 10px 0;
+    background-color: rgba(3, 80, 90, 0.25);
+}
 
 
 

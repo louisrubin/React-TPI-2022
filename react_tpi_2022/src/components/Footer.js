@@ -6,9 +6,6 @@ import yt from '../assets/youtube.svg'
 function Footer() {
     return(
         <footer>
-            <div id='opt'>
-
-            </div>
 
             <div id="assets">
                 <a href='https://www.linkedin.com/in/luisrubin/' target="_blank">
@@ -22,6 +19,9 @@ function Footer() {
                 </a>
             </div>
 
+            <div id='copyright'>
+                Rubin Azas Miguel Angel Luis - Informatorio Chaco, Etapa 3 (Julio 2022)
+            </div>
         </footer>
     )
 }
