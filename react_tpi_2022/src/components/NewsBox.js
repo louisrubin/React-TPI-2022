@@ -9,13 +9,15 @@ function NewsBox(props) {
             <a href={news.url} target="_blank" rel="noopener noreferrer">
                 <img className="img-news" src={news.urlToImage}  />
             </a>
+            
+            <div id='box-info'>
+                <small>Publicado: { publishedAt } - </small>
+                <small style={ {textDecoration: 'underline'} }>{ news.source.name }</small>
 
-            <small>Publicado: { publishedAt } - </small>
-            <small style={ {textDecoration: 'underline'} }>{ news.source.name }</small>
-
-            <a href={news.url} target="_blank" rel="noopener noreferrer">
-                <p> <b>{news.title}</b>  </p> 
-            </a>                                
+                <a href={news.url} target="_blank" rel="noopener noreferrer">
+                    <p> <b>{news.title}</b>  </p> 
+                </a> 
+            </div>                               
         </div>
     )
 }
