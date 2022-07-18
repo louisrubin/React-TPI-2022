@@ -7,7 +7,7 @@ import './Header.css'
 function Header() {
 
     const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
-    const [Resp, setResponse ] = useState(' ')
+    const [Resp, setResponse ] = useState(null)
     
     const fetchApi = async () => {
         // WEATHER API
@@ -15,14 +15,12 @@ function Header() {
             const responseJSON = await response.json()
 
             await setResponse(responseJSON)
-
-            const spanInfo = document.getElementById("div-weather")
-            spanInfo.innerHTML = `<p style="display: inline;">${Resp.location.name} - ${Resp.current.temp_c}°C</p>  <img id="weather-icon" src=${Resp.current.condition.icon} />`
+            // const spanInfo = document.getElementById("div-weather")
     }
 
     useEffect( () => {
          fetchApi()
-    }, [Resp === ' '] )     // una vez que se le asigna un valor a Resp ya no se vuelve a ejecutar fetchApi()
+    }, [])     // una vez que se le asigna un valor a Resp ya no se vuelve a ejecutar fetchApi()
 
 
     return(
@@ -37,14 +35,19 @@ function Header() {
                 <div>
                     <label>Buscar Noticia</label>
                     <input />
-                    <img src={searchWhite} />
-                    <img src={searchBlack} />
+                    <img src={searchWhite} alt="" />
+                    <img src={searchBlack} alt="" />
                 </div>
-                <a href=''>ABOUT</a>
+                <a href='#' >ABOUT</a>
             </div>
             
             <div id="header-sub-info">
-                <div id="div-weather"></div>
+                    { Resp !==  null ? (
+                        <div id="div-weather">
+                            <p style= {{display: "inline"}} >{Resp.location.name} - {Resp.current.temp_c}°C</p>  
+                            <img id="weather-icon" src= {Resp.current.condition.icon} />
+                        </div>
+                    ) : ('Cargando') }
             </div>
         </div>
         </>

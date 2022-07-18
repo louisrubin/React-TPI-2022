@@ -22,7 +22,7 @@ function Form() {
                 <select name="pages">
                     <option>4</option>
                     <option>8</option>
-                    <option selected="yes">10</option>
+                    <option select="yes">10</option>
                     <option>12</option>
                     <option>16</option>
                 </select>
