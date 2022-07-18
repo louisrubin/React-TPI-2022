@@ -1,0 +1,37 @@
+footer {
+    /* background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  ); */
+    background-color: rgba(3, 121, 135, 0.7);
+}
+#desc {
+    font-family: 'Oswald';
+    font-size: 0.7em;
+    font-weight: bold;
+    word-spacing: 3px;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+#assets {
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#assets img {
+    height: 17px;
+    width: 17px;
+    padding: 7px;
+}
+
+#assets a {
+    margin: 0 3px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(202, 202, 202);
+    border-radius: 50%;
+}
+
+
+
+
