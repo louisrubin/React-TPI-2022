@@ -3,7 +3,7 @@ import NewsBox from "./NewsBox";
 import './News.css';
 import Function from "./Functions";
 import notFoundicon from '../assets/file-delete.png';
-import { Form, formListener } from './FormSearch';
+import Form from './FormSearch';
 
 
 function Main() {
@@ -17,15 +17,15 @@ function Main() {
     
     useEffect( () =>{
         Function.fetchApi(setAllResp, url)     // import SET ALL RESP
-        formListener({setSearch, setLanguage, setPages})
+        Function.formListener({setSearch, setLanguage, setPages})
     }, [search, language, pages])   // dependencias del useEffect
 
     return(
         <>
             <Form defValue={search} />
-            
+
             <div className="conteiner-news">
-                { !allResp ? 'Cargando...' :
+                { !allResp ? 'Cargando...' :    // AGREGAR ANIMACION 'CARGANDO' ###############
                     allResp.articles.map( (news, index ) => {
                         const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
                         const obj = { news, index, publishedAt} // un objeto como param

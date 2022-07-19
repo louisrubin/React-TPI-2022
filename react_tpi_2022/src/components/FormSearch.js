@@ -1,21 +1,5 @@
 // FORM SEARCH FORM
-
-const formListener = (states) => {
-    const { setSearch, setLanguage, setPages } = states
-    // form listener on Submit event
-    console.log('STATES ',states)
-    document.getElementById('form-search')
-        .addEventListener('submit', e => {
-            e.preventDefault()
-            const data = Object.fromEntries(new FormData(e.target) )
-            console.log(data)
-            setSearch(data.search)
-            setLanguage(data.language)
-            setPages(data.pages)
-        }
-    )
-} 
-
+import './FormSearch.css'
 
 function Form(props) {
     // COMPONENT SEARCH BELOW HEADER
@@ -45,4 +29,4 @@ function Form(props) {
     )
 }
 
-export {Form, formListener}
+export default Form
