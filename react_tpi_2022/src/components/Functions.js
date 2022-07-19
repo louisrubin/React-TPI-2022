@@ -35,7 +35,7 @@ const Function = {
                 e.preventDefault()
                 const data = Object.fromEntries(new FormData(e.target) )
                 setSearch(data.search)
-                setLanguage(data.language)
+                setLanguage( data.language.slice(0, 2) )
                 setPages(data.pages)
             }
         )
