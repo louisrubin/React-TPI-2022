@@ -7,8 +7,8 @@ import Form from './FormSearch';
 
 
 function Main() {
-    const [search, setSearch] = useState('chaco')
-    const [pages, setPages] = useState(4)    // if (totalResults < 10 { pages = totalResults })
+    const [search, setSearch] = useState('resistencia')
+    const [pages, setPages] = useState(8)    // if (totalResults < 10 { pages = totalResults })
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
     
@@ -22,10 +22,12 @@ function Main() {
 
     return(
         <>
-            <Form defValue={search} />
+            <Form defValInp={search} defValOpt={pages} />
 
             <div className="conteiner-news">
-                { !allResp ? 'Cargando...' :    // AGREGAR ANIMACION 'CARGANDO' ###############
+                { allResp !== null 
+                    ? 'Cargando...'         // AGREGAR ANIMACION 'CARGANDO' ###############
+                    :
                     allResp.articles.map( (news, index ) => {
                         const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
                         const obj = { news, index, publishedAt} // un objeto como param
