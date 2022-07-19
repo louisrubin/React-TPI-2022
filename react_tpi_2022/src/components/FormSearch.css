@@ -1,4 +1,40 @@
 
+form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 95px;
+    
+    background-color: aquamarine;
+    padding: 10px 50px;
+    font-family: 'Oswald';
+    user-select: none;
+}
+select  {
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-size: 1em;
+    text-align: center;
+}
+
+label {
+    margin: 0 5px 0 17px;
+    font-size: 1.2em;
+}
+input {
+    width: 15%;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: capitalize;
+    outline: none;
+}
+
+#btn-submit {
+    margin: 0 5px 0 17px;
+    font-size: 1em;
+    font-family: 'Oswald';
+    cursor: pointer;
+}
 
 
 
