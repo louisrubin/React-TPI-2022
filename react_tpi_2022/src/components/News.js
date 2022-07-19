@@ -9,18 +9,18 @@ import notFoundicon from '../assets/file-delete.png'
 function Form(props) {
     // COMPONENT SEARCH BELOW HEADER
     return(
-        <div id="form-search">
-            <form onSubmit={props.onSub}>
-                <input type="text" name="search" placeholder="Buscar" onChange={props.onChange} />
+        <div>
+            <form id="form-search">
+                <input type="text" name="search" placeholder="Buscar" defaultValue={props.defValue} />
 
                 <label>Idioma</label>
                 <select name="language">
-                    <option>ES</option>
-                    <option>EN</option>
+                    <option>es</option>
+                    <option>en</option>
                 </select>
 
                 <label>Resultados</label>
-                <select name="pages">
+                <select name="pages" >
                     <option>4</option>
                     <option>8</option>
                     <option select="yes">10</option>
@@ -39,28 +39,32 @@ function Main() {
     const [pages, setPages] = useState(10)    // if (totalResults < 10 { pages = totalResults })
     const [language, setLanguage] = useState('es')
     const [allResp, setResp] = useState()
-    //const [totalResult, setResults] = useState()
     
     const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
-    const onChange = (e) => {
-        setSearch( e.target.value )
-    }
-    const onSub = (e) => {
-        e.preventDefault()
-        Function.fetchApi(setResp, url)     // hace el llamado a la api
-    }
+    const formListener = () => {
+        document.getElementById('form-search')
+            .addEventListener('submit', e => {
+                e.preventDefault()
+                const data = Object.fromEntries(new FormData(e.target) )
+                setSearch(data.search)
+                setLanguage(data.language)
+                setPages(data.pages)
+            }
+        )
+    } 
     
     useEffect( () =>{
         Function.fetchApi(setResp, url)     // import FetchApi
-    }, [])  
+        formListener()
+        console.log('USE EFFECT')
+    }, [search, language, pages])  
 
     return(
         <>
-            <Form onSub={onSub} onChange={onChange} />
+            <Form defValue={search} />
             <div className="conteiner-news">
                 { !allResp ? 'Cargando...' :
-
                     allResp.articles.map( (news, index ) => {
                         const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
                         const obj = { news, index, publishedAt} // un objeto como param
