@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import searchWhite from '../assets/search1.svg'
 import searchBlack from '../assets/search2.svg'
 import './Header.css'
+import Function from './Functions'
 
 
 function Header() {
@@ -9,19 +10,10 @@ function Header() {
     const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
     const [Resp, setResponse ] = useState(null)
     
-    const fetchApi = async () => {
-        // WEATHER API
-            const response = await fetch(url)
-            const responseJSON = await response.json()
-
-            await setResponse(responseJSON)
-            // const spanInfo = document.getElementById("div-weather")
-    }
 
     useEffect( () => {
-         fetchApi()
-    }, [])     // una vez que se le asigna un valor a Resp ya no se vuelve a ejecutar fetchApi()
-
+        Function.fetchApi(setResponse, url)     // import FetchApi
+    }, [])
 
     return(
         <>
