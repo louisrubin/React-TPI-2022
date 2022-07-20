@@ -25,7 +25,7 @@ function Main() {
             <Form defValInp={search} defValOpt={pages} />
 
             <div className="conteiner-news">
-                { allResp !== null 
+                { allResp ===  undefined 
                     ? 'Cargando...'         // AGREGAR ANIMACION 'CARGANDO' ###############
                     :
                     allResp.articles.map( (news, index ) => {
