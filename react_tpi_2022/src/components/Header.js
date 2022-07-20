@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import searchWhite from '../assets/search1.svg'
-import searchBlack from '../assets/search2.svg'
 import './Header.css'
 import Function from './Functions'
 
@@ -24,12 +22,6 @@ function Header() {
         <div id="header">
             <div id='over'>
                 <h1>INFOR-NOTICIAS</h1>
-                <div>
-                    <label>Buscar Noticia</label>
-                    <input />
-                    <img src={searchWhite} alt="" />
-                    <img src={searchBlack} alt="" />
-                </div>
                 <a href='#' >ABOUT</a>
             </div>
             
