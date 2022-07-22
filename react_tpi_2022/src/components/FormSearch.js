@@ -1,12 +1,16 @@
 // FORM SEARCH FORM
 import './FormSearch.css'
 
+
+
 function Form(props) {
     // COMPONENT SEARCH BELOW HEADER
     return(
+        <>
         <form id="form-search">
-            <input type="search" name="search" placeholder="Buscar" defaultValue={props.defValInp} />
-
+            <input id="inp-search" type="search" name="search" placeholder="Buscar" defaultValue={props.defValInp} />
+            <small id="smll-caract">Ingrese un mínimo de 3 caracteres</small>
+            
             <label>Idioma</label>
             <select name="language">
                 <option>español</option>
@@ -23,6 +27,7 @@ function Form(props) {
 
             <button id="btn-submit" type="submit">Buscar</button>
         </form>
+        </>
     )
 }
 
