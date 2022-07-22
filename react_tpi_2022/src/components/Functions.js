@@ -29,10 +29,23 @@ const Function = {
 
     formListener: (states) => {
         const { setSearch, setLanguage, setPages } = states
-        // form listener on Submit event
+        const input = document.querySelector('#form-search input')     // selecciono el input del form
+    
+
+        input.addEventListener('blur', () => {
+            // event listener de tipo blur: valida longitud y desactiva el boton 'submit'
+            if (input.value.length < 3 ){
+                input.classList.add('lessThanThree')
+            } else{
+                input.classList.remove('lessThanThree')
+            }
+        })
+        
+        
         document.getElementById('form-search')
-            .addEventListener('submit', e => {
+            .addEventListener('submit', e => {      // form listener on Submit event
                 e.preventDefault()
+
                 const data = Object.fromEntries(new FormData(e.target) )
                 setSearch(data.search)
                 setLanguage( data.language.slice(0, 2) )
