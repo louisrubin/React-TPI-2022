@@ -8,7 +8,7 @@ function Form(props) {
     return(
         <>
         <form id="form-search">
-            <input id="inp-search" type="search" name="search" placeholder="Buscar" defaultValue={props.defValInp} />
+            <input id="inp-search" type="search" name="search" placeholder="Buscar" />
             <small id="smll-caract">Ingrese un mínimo de 3 caracteres</small>
             
             <label>Idioma</label>
@@ -31,4 +31,4 @@ function Form(props) {
     )
 }
 
-export default Form
+export default Form;

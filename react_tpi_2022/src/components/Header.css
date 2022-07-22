@@ -56,7 +56,22 @@ h1 {
     border-radius: 16px;
 }
 
+@media screen and (max-width: 410px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    #header-sub-info p{
+        font-size: 0.75em;
 
+    }
+    #weather-icon {
+        width: 20px;
+    }
+
+    #over a {
+        font-size: 0.7em;
+    }
+}
 
 
 
