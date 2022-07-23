@@ -29,15 +29,22 @@ const Function = {
 
     formListener: (states) => {
         const { setSearch, setLanguage, setPages } = states
-        const input = document.querySelector('#form-search input')     // selecciono el input del form
-    
+        const input = document.querySelector("#form-search input")     // selecciono el input del form
+        const textAlert = document.querySelector("#smll-caract")
+        const submitBtn = document.querySelector("#btn-submit")
+        textAlert.classList.add("hiden")    // agrega la clase CSS 'hiden'
 
         input.addEventListener('blur', () => {
             // event listener de tipo blur: valida longitud y desactiva el boton 'submit'
             if (input.value.length < 3 ){
-                input.classList.add('lessThanThree')
+                input.classList.add('lessThanThree')    // borde rojo al input
+                textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
+                submitBtn.disabled = true               // desactiva el button
+            
             } else{
                 input.classList.remove('lessThanThree')
+                textAlert.classList.add("hiden")
+                submitBtn.disabled = false
             }
         })
         
