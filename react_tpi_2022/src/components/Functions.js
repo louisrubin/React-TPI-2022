@@ -2,12 +2,17 @@
 import { DateTime } from 'luxon'
 
 const Function = {
-    fetchApi: async (state, url) => {
+    fetchApi: async (setAllResp, url, pages, setPages) => {
             // WEATHER API
             try {
                 const response = await fetch(url)
                 const responseJSON = await response.json()
-                state(responseJSON)     // setState(responseJSON) traido por parámetro
+
+                if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
+                    setPages(responseJSON.totalResults)
+                }
+
+                setAllResp(responseJSON)     // setState(responseJSON) traido por parámetro
 
             } catch (e) {
                 console.log('ERROR ', e)
