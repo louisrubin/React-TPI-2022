@@ -33,6 +33,7 @@ const Function = {
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
         textAlert.classList.add("hiden")    // agrega la clase CSS 'hiden'
+        submitBtn.disabled = true
 
         input.addEventListener('blur', () => {
             // event listener de tipo blur: valida longitud y desactiva el boton 'submit'
