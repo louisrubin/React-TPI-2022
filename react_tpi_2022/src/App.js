@@ -3,8 +3,10 @@ import { Component } from "react";
 import './App.css'
 import Header from "./components/Header";
 import Main from "./components/News";
-import { Link, Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
+import OneNews from "./components/OneNews";
 
 
 class App extends Component {
@@ -15,15 +17,10 @@ class App extends Component {
         <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/about' element={<Header />} />
-            <Route path="*" element={<h1>Not found</h1>} /> 
+			<Route path='/news/:title/:imgURL/:url' element={ <OneNews /> } />
+
+            <Route path="*" element={<NotFound />} /> 
         </Routes>
-        
-        <nav style={{marginTop: '150px'}}>
-          <ul>
-            <li> <Link to='/'>Main</Link> </li>
-            <li> <Link to='/about'>Header</Link> </li>
-          </ul>
-        </nav>
         
         <Footer />
       </>
