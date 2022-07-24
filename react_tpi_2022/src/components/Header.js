@@ -21,7 +21,7 @@ function Header() {
         
         <div id="header">
             <div id='over'>
-                <h1>INFOR-NOTICIAS</h1>
+                <h1 id='main-title'>INFOR-NOTICIAS</h1>
                 <a href='#' >ABOUT</a>
             </div>
             
