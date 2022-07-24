@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import NewsBox from "./NewsBox";
 import './News.css';
+import { useEffect, useState } from "react";
+
+import NewsBox from "./NewsBox";
 import Function from "./Functions";
 import notFoundicon from '../assets/file-delete.png';
 import Form from './FormSearch';
@@ -38,7 +39,7 @@ function Main() {
 
     
     useEffect( () =>{
-        Function.fetchApi(setAllResp, url)     // import SET ALL RESP
+        Function.fetchApi(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
         Function.formListener({setSearch, setLanguage, setPages})
     }, [search, language, pages])   // dependencias del useEffect
 
