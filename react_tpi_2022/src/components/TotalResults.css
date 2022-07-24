@@ -1,0 +1,10 @@
+.conteiner-results {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    top: 80px;
+}
+p {
+    font-size: 0.8em;
+}
