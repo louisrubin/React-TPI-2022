@@ -4,6 +4,28 @@ import './News.css';
 import Function from "./Functions";
 import notFoundicon from '../assets/file-delete.png';
 import Form from './FormSearch';
+import TotalResults from './TotalResults'
+
+
+function NewsConteiner(props) {
+    const { allResp } = props
+
+    return(
+        allResp.articles.map( (news, index ) => {
+            const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
+            const obj = { news, index, publishedAt} // un objeto como param
+
+            if (news.urlToImage === null){
+                news.urlToImage = notFoundicon
+            }
+            return(
+                NewsBox(obj)
+            )
+        })
+
+    )
+}
+
 
 
 function Main() {
@@ -20,26 +42,23 @@ function Main() {
         Function.formListener({setSearch, setLanguage, setPages})
     }, [search, language, pages])   // dependencias del useEffect
 
+
+    // RETURN MAIN()
     return(
         <>
             <Form defValInp={search} defValOpt={pages} />
-
-            <div className="conteiner-news">
+            
                 { allResp ===  undefined 
                     ? 'Cargando...'         // AGREGAR ANIMACION 'CARGANDO' ###############
                     :
-                    allResp.articles.map( (news, index ) => {
-                        const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
-                        const obj = { news, index, publishedAt} // un objeto como param
-                        if (news.urlToImage === null){
-                            news.urlToImage = notFoundicon
-                        }
-                        return(
-                            NewsBox(obj)
-                        )
-                    })
+                    <>
+                        <TotalResults viewing={pages} totalResults={allResp} />
+                        
+                        <div className="conteiner-news">
+                            <NewsConteiner allResp={allResp} />
+                        </div>
+                    </>
                 }
-            </div>
         </>
     )
 }
