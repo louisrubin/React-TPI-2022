@@ -1,6 +1,7 @@
 footer {
     /* background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  ); */
     background-color: rgba(3, 121, 135, 0.7);
+    margin-top: 150px;
 }
 #desc {
     font-family: 'Oswald';
@@ -29,6 +30,7 @@ footer {
     width: 30px;
     height: 30px;
     background-color: rgb(202, 202, 202);
+    border: 1px solid rgb(0,0,0);
     border-radius: 50%;
     user-select: none;
 }
