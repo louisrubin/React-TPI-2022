@@ -1,12 +1,23 @@
 #conteiner-notFound {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 90;
+    top: 130px;
+
+    align-items: center;
 
     text-align: center;
     font-size: 1.4em;
+    width: 100%;
+    margin-bottom: 208px;
 }
 
 img {
     width: 100%;
+    user-select: none;
 }
 
+#div-inside {
+    width: 15%;
+}
