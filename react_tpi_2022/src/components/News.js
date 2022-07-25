@@ -2,10 +2,11 @@ import './News.css';
 import { useEffect, useState } from "react";
 
 import NewsBox from "./NewsBox";
-import Function from "./Functions";
+import Functions from "./Functions";
 import notFoundicon from '../assets/file-delete.png';
 import Form from './FormSearch';
 import TotalResults from './TotalResults'
+import LoadingSpinner from './Spinner';
 
 
 function NewsConteiner(props) {
@@ -13,7 +14,7 @@ function NewsConteiner(props) {
 
     return(
         allResp.articles.map( (news, index ) => {
-            const publishedAt = Function.transformDate(news.publishedAt)    // import FetchApi
+            const publishedAt = Functions.transformDate(news.publishedAt)    // import FetchApi
             const obj = { news, index, publishedAt} // un objeto como param
 
             if (news.urlToImage === null){
@@ -28,21 +29,22 @@ function NewsConteiner(props) {
 }
 
 
-
 function Main() {
-    const [search, setSearch] = useState('resistencia')
+    const [search, setSearch] = useState('argentina')
     const [pages, setPages] = useState(8)    // if (totalResults < 10 { pages = totalResults })
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
+    // const [isLoading, setIsLoading] = useState(false)
     
     const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
     
     useEffect( () =>{
-        Function.fetchApi(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
-        Function.formListener({setSearch, setLanguage, setPages})
+        Functions.fetchApi(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
+        Functions.formListener( {setSearch, setLanguage, setPages} )
     }, [search, language, pages])   // dependencias del useEffect
 
+    
 
     // RETURN MAIN()
     return(
@@ -50,7 +52,9 @@ function Main() {
             <Form defValInp={search} defValOpt={pages} />
             
                 { allResp ===  undefined 
-                    ? 'Cargando...'         // AGREGAR ANIMACION 'CARGANDO' ###############
+                    ?   <div className="conteiner-news">
+                            <LoadingSpinner />
+                        </div> 
                     :
                     <>
                         <TotalResults viewing={pages} totalResults={allResp} />
