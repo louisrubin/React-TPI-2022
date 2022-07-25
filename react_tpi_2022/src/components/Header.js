@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
 import Function from './Functions'
+import LoadingSpinner from './Spinner'
 
 
 function Header() {
 
     const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
-    const [Resp, setResponse ] = useState(null)
+    const [weather, setWeather ] = useState(undefined)
     
 
     useEffect( () => {
-        Function.fetchApi(setResponse, url)     // import FetchApi
+        Function.fetchApi(setWeather, url)     // import FetchApi
     }, [])
 
     return(
@@ -21,17 +22,19 @@ function Header() {
         
         <div id="header">
             <div id='over'>
-                <h1 id='main-title'>INFOR-NOTICIAS</h1>
+                <h1 id='main-title'>INFOR-NEWS</h1>
                 <a href='#' >ABOUT</a>
             </div>
             
             <div id="header-sub-info">
-                    { Resp !==  null ? (
-                        <div id="div-weather">
-                            <p style= {{display: "inline"}} >{Resp.location.name} - {Resp.current.temp_c}°C</p>  
-                            <img id="weather-icon" src= {Resp.current.condition.icon} />
-                        </div>
-                    ) : ('Cargando') }
+                    <div id="div-weather">
+                        { weather !== undefined ? (
+                        <>
+                            <p>{weather.location.name} - {weather.current.temp_c}°C</p>  
+                            <img id="weather-icon" src= {weather.current.condition.icon} />
+                        </>
+                        ) : <p>Loading...</p>}
+                    </div>
             </div>
         </div>
         </>
