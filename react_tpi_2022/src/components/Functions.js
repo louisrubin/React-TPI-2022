@@ -2,17 +2,14 @@
 import { DateTime } from 'luxon'
 
 const Functions = {
-    fetchApi: async (setAllResp, url, pages, setPages) => {
-            // WEATHER API
-            
+    fetchNews: async (setAllResp, url, pages, setPages) => {
+            // NEWS API
             try {
                 const response = await fetch(url)
                 const responseJSON = await response.json()
-
                 if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
                     setPages(responseJSON.totalResults)
                 }
-
                 setAllResp(undefined)
 
                 setInterval( () => {
@@ -21,7 +18,20 @@ const Functions = {
 
             } catch (e) {
                 console.log('ERROR ', e)
+                setAllResp(e)
             }
+    },
+
+    fetchWeather: async (setWeather, url) => {
+        // WEATHER API
+        try {
+            const response = await fetch(url)
+            const responseJSON = await response.json()
+            setWeather(responseJSON)
+        } catch (e) {
+            console.log('ERROR ', e)
+            setWeather(e)
+        }
     },
 
 

@@ -40,7 +40,7 @@ function Main() {
 
     
     useEffect( () =>{
-        Functions.fetchApi(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
+        Functions.fetchNews(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
         Functions.formListener( {setSearch, setLanguage, setPages} )
     }, [search, language, pages])   // dependencias del useEffect
 

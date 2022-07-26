@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
-import Function from './Functions'
+import Functions from './Functions'
 import LoadingSpinner from './Spinner'
 
 
 function Header() {
 
     const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
-    const [weather, setWeather ] = useState(undefined)
+    const [weather, setWeather ] = useState(null)
     
 
     useEffect( () => {
-        Function.fetchApi(setWeather, url)     // import FetchApi
+        Functions.fetchWeather(setWeather, url)     // import FetchApi
     }, [])
 
     return(
@@ -28,7 +28,7 @@ function Header() {
             
             <div id="header-sub-info">
                     <div id="div-weather">
-                        { weather !== undefined ? (
+                        { weather !== null ? (
                         <>
                             <p>{weather.location.name} - {weather.current.temp_c}°C</p>  
                             <img id="weather-icon" src= {weather.current.condition.icon} />
