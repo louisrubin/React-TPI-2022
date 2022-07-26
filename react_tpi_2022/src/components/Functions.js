@@ -6,7 +6,7 @@ const Functions = {
             // NEWS API
             try {
                 const response = await fetch(url)
-                const responseJSON = await response.json()
+                const responseJSON = await response.json()  //.reject() to reject promise
                 if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
                     setPages(responseJSON.totalResults)
                 }
@@ -18,30 +18,37 @@ const Functions = {
 
             } catch (e) {
                 console.log('ERROR ', e)
-                setAllResp(<p>{e}</p>)        // if an error ocurred set hook with a <p>
+                const objError = {
+                    articles: null
+                }
+                setAllResp(objError)        // if an error ocurred set hook with a <p>
             }
     },
 
     fetchWeather: async (setWeather, url) => {
         // WEATHER API
         try {
+            
             const response = await fetch(url)
-            const responseJSON = await response.json()
+            const responseJSON = await response.json()  //.reject() to reject promise
             setWeather(responseJSON)
         } catch (e) {
-            console.log('ERROR ', e)
-            setWeather(<p>{e}</p>)
+            console.log('ERROR', e)
+            setWeather(null)        // set weather to null
         }
     },
 
 
     transformDate: (time) => {
         // function to transform date ISO from News API to a local String Date
-        const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
-        const newDate = Date.toLocaleString(DateTime.DATE_MED)     // 'dd-MM-yyyy- hh:mm' (formato 12hs)
+        if (time !== null ){
+            const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
+            const newDate = Date.toLocaleString(DateTime.DATE_MED)     // 'dd-MM-yyyy- hh:mm' (formato 12hs)
+    
+            const Time = `${newDate} - ${ ('0' + Date.c.hour).slice(-2) }:${ ('0' + Date.c.minute).slice(-2) }hs`   // método slice(-2) - shorturl.at/klrxZ
+            return Time
 
-        const Time = `${newDate} - ${ ('0' + Date.c.hour).slice(-2) }:${ ('0' + Date.c.minute).slice(-2) }hs`   // método slice(-2) - shorturl.at/klrxZ
-        return Time
+        }
         
         //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     },

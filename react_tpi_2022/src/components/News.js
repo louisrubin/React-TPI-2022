@@ -12,20 +12,31 @@ import LoadingSpinner from './Spinner';
 function NewsConteiner(props) {
     const { allResp } = props
 
-    return(
-        allResp.articles.map( (news, index ) => {
-            const publishedAt = Functions.transformDate(news.publishedAt)    // import FetchApi
-            const obj = { news, index, publishedAt} // un objeto como param
+    if (allResp.articles !== null){
+        // if articles !== null
+        return(
+            allResp.articles.map( (news, index ) => {
+                const publishedAt = Functions.transformDate(news.publishedAt)    // import FetchApi
+                const obj = { news, index, publishedAt} // un objeto como param
 
-            if (news.urlToImage === null){
-                news.urlToImage = notFoundicon
-            }
-            return(
-                NewsBox(obj)
-            )
-        })
+                if (news.urlToImage === null){
+                    news.urlToImage = notFoundicon
+                }
+                return(
+                    NewsBox(obj)
+                )
+            })
 
-    )
+        )
+    }
+    else{
+        // if articles === null
+        return(
+            <div className='error-div'>
+                <p>ERROR LOADING (Refresh)</p>
+            </div>
+        )
+    }
 }
 
 
