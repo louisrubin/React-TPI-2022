@@ -7,12 +7,20 @@ import notFoundicon from '../assets/file-delete.png';
 import FormSearch from './FormSearch';
 import TotalResults from './TotalResults'
 import LoadingSpinner from './Spinner';
+import NotFound_Results from './NotFound_Results';
 
 
 function NewsConteiner(props) {
     const { allResp } = props
 
-    if (allResp.articles !== null){
+    if ( allResp.totalResults === 0){
+        //  no results found
+        return(
+            <NotFound_Results noResults={true} />
+        )
+    }
+
+    else if (allResp.articles !== null){
         // if articles !== null
         return(
             allResp.articles.map( (news, index ) => {
@@ -45,7 +53,6 @@ function Main() {
     const [pages, setPages] = useState(8)    // if (totalResults < 10 { pages = totalResults })
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
-    // const [isLoading, setIsLoading] = useState(false)
     
     const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
@@ -65,7 +72,7 @@ function Main() {
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">
                             <LoadingSpinner />
-                        </div> 
+                        </div>
                     :
                     <>
                         <TotalResults viewing={pages} totalResults={allResp} />
