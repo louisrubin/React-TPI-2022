@@ -1,9 +1,10 @@
 // FUNCTIONS
 import { DateTime } from 'luxon'
 
-const Function = {
+const Functions = {
     fetchApi: async (setAllResp, url, pages, setPages) => {
             // WEATHER API
+            
             try {
                 const response = await fetch(url)
                 const responseJSON = await response.json()
@@ -12,7 +13,11 @@ const Function = {
                     setPages(responseJSON.totalResults)
                 }
 
-                setAllResp(responseJSON)     // setState(responseJSON) traido por parámetro
+                setAllResp(undefined)
+
+                setInterval( () => {
+                    setAllResp(responseJSON)     // interval to display the Spinner Loading
+                }, 750)
 
             } catch (e) {
                 console.log('ERROR ', e)
@@ -71,5 +76,5 @@ const Function = {
     
 }
 
-export default Function;
+export default Functions;
 
