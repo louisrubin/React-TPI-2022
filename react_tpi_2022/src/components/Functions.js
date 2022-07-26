@@ -5,23 +5,24 @@ const Functions = {
     fetchNews: async (setAllResp, url, pages, setPages) => {
             // NEWS API
             try {
+                setAllResp(undefined)
+
                 const response = await fetch(url)
                 const responseJSON = await response.json()  //.reject() to reject promise
+                setAllResp(responseJSON)
+
                 if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
                     setPages(responseJSON.totalResults)
                 }
-                setAllResp(undefined)
-
-                setInterval( () => {
-                    setAllResp(responseJSON)     // interval to display the Spinner Loading
-                }, 750)
+                
 
             } catch (e) {
                 console.log('ERROR ', e)
                 const objError = {
-                    articles: null
+                    articles: null,
+                    message: 'An error occurred'
                 }
-                setAllResp(objError)        // if an error ocurred set hook with a <p>
+                setAllResp(objError)        // if an error ocurred set hook with null
             }
     },
 
@@ -37,22 +38,6 @@ const Functions = {
             setWeather(null)        // set weather to null
         }
     },
-
-
-    transformDate: (time) => {
-        // function to transform date ISO from News API to a local String Date
-        if (time !== null ){
-            const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
-            const newDate = Date.toLocaleString(DateTime.DATE_MED)     // 'dd-MM-yyyy- hh:mm' (formato 12hs)
-    
-            const Time = `${newDate} - ${ ('0' + Date.c.hour).slice(-2) }:${ ('0' + Date.c.minute).slice(-2) }hs`   // método slice(-2) - shorturl.at/klrxZ
-            return Time
-
-        }
-        
-        //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
-    },
-
 
     formListener: (states) => {
         const { setSearch, setLanguage, setPages } = states
@@ -87,6 +72,20 @@ const Functions = {
                 setPages(data.pages)
             }
         )
+    },
+
+    transformDate: (time) => {
+        // function to transform date ISO from News API to a local String Date
+        if (time !== null ){
+            const Date = DateTime.fromISO(time)     // =>  {year: 2022, month: 7, day: 8, hour: 14, minute: 30, minute, second, ... }
+            const newDate = Date.toLocaleString(DateTime.DATE_MED)     // 'dd-MM-yyyy- hh:mm' (formato 12hs)
+    
+            const Time = `${newDate} - ${ ('0' + Date.c.hour).slice(-2) }:${ ('0' + Date.c.minute).slice(-2) }hs`   // método slice(-2) - shorturl.at/klrxZ
+            return Time
+
+        }
+        
+        //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     },
 
 
