@@ -2,7 +2,7 @@
 import './FormSearch.css'
 
 
-function Form(props) {
+function FormSearch(props) {
     // COMPONENT SEARCH BELOW HEADER
     return(
         <>
@@ -13,14 +13,11 @@ function Form(props) {
             </div>
             
             
-            
-            <label>Idioma</label>
             <select name="language">
                 <option>español</option>
                 <option>english</option>
             </select>
 
-            <label>Resultados</label>
             <select name="pages" defaultValue={props.defValOpt}>
                 <option>4</option>
                 <option>8</option>
@@ -35,4 +32,4 @@ function Form(props) {
     )
 }
 
-export default Form;
+export default FormSearch;

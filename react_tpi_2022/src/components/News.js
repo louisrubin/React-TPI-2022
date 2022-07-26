@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import NewsBox from "./NewsBox";
 import Functions from "./Functions";
 import notFoundicon from '../assets/file-delete.png';
-import Form from './FormSearch';
+import FormSearch from './FormSearch';
 import TotalResults from './TotalResults'
 import LoadingSpinner from './Spinner';
 
@@ -60,7 +60,7 @@ function Main() {
     // RETURN MAIN()
     return(
         <>
-            <Form defValInp={search} defValOpt={pages} />
+            <FormSearch defValOpt={pages} />
             
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">
