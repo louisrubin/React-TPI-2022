@@ -1,21 +1,19 @@
-import './OneNews.css'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import './OneNews.css';
 
 function OneNews() {
-    const { title, urlToImage, url } = useParams()
+    const { title, author, description, published } = useParams();
     console.log(title)
-
-    /*
-                NO FUNCA :C
-    */
 
     return (
         <div className='conteiner-news' id='one-news-page'>
             <h1> {title} </h1>
-            <img src={urlToImage} />
+            <small> {published} </small>
+            <h2> {author} </h2>
+            <p> {description} </p>
 
-            <a href={url}>
-                <input type='button' >IR A LA NOTICIA</input>
+            <a href="#">
+                <button id='toNews-Btn'>IR A LA NOTICIA</button>
             </a>
         </div>
     )

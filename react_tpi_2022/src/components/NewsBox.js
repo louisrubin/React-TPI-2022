@@ -1,11 +1,10 @@
 import './NewsBox.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // NEWS-BOX COMPONENT
 function NewsBox(props) {
     const { news, index, publishedAt } = props
 
-    const { title, urlToImage, url } = news
 
     return(
         <div className="box-news" key={index}>
@@ -14,7 +13,7 @@ function NewsBox(props) {
                 <img className="img-news" src={news.urlToImage}  />
             </a> */}
             
-            <Link to={`/news/${title}/${urlToImage}/${url}`}>
+            <Link to={`/news/${news.title}/${news.author}/${news.description}/${publishedAt}`}>
                 <img className="img-news" src={news.urlToImage}  />
             </Link>
 
@@ -22,7 +21,7 @@ function NewsBox(props) {
                 <small>Publicado: { publishedAt } - </small>
                 <small style={ {textDecoration: 'underline'} }>{ news.source.name }</small>
 
-                <Link to={`/news/${title}`}>  
+                <Link to={`/news/${news.title}`}>  
                     <p> <b>{news.title}</b>  </p>
                 </Link>
 
