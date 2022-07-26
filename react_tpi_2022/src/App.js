@@ -17,7 +17,7 @@ class App extends Component {
         <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/about' element={<Header />} />
-			<Route path='/news/:title/:imgURL/:url' element={ <OneNews /> } />
+			<Route path='/news/:title/:author/:description/:published' element={ <OneNews /> } />
 
             <Route path="*" element={<NotFound />} /> 
         </Routes>
