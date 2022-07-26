@@ -13,7 +13,7 @@ function Header() {
     useEffect( () => {
         Functions.fetchWeather(setWeather, url)     // import FetchApi
     }, [])
-
+    
     return(
         <>
         <style>
@@ -30,7 +30,7 @@ function Header() {
                     <div id="div-weather">
                         { weather !== null ? (
                         <>
-                            <p>{weather.location.name} - {weather.current.temp_c}°C</p>  
+                            <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>  
                             <img id="weather-icon" src= {weather.current.condition.icon} />
                         </>
                         ) : <p>Loading...</p>}
