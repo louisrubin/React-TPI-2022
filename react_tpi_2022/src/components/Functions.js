@@ -18,7 +18,7 @@ const Functions = {
 
             } catch (e) {
                 console.log('ERROR ', e)
-                setAllResp(e)
+                setAllResp(<p>e</p>)        // if an error ocurred set hook with a <p>
             }
     },
 
@@ -30,7 +30,7 @@ const Functions = {
             setWeather(responseJSON)
         } catch (e) {
             console.log('ERROR ', e)
-            setWeather(e)
+            setWeather(<p>e</p>)
         }
     },
 
