@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
 import Functions from './Functions'
-import LoadingSpinner from './Spinner'
+
+
 
 
 function Header() {
 
-    const url = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
+    const urlWeather = 'http://api.weatherapi.com/v1/current.json?key=7d126238b051441097794649221407&q=Resistencia&aqi=no'
+    const urlBlue = 'https://api.bluelytics.com.ar/v2/latest'
     const [weather, setWeather ] = useState(null)
+    const [bluePrice, setBlue ] = useState()
+    console.log('BLUE', bluePrice)
     
 
+    // USE EFFECT
     useEffect( () => {
-        Functions.fetchWeather(setWeather, url)     // import FetchApi
+        Functions.fetchWeather(setWeather, urlWeather)     // import FetchApi
+        Functions.fetchBlue(setBlue, urlBlue)
     }, [])
     
     return(
@@ -27,13 +33,29 @@ function Header() {
             </div>
             
             <div id="header-sub-info">
-                    <div id="div-weather">
-                        { weather !== null ? (
+                    <div className="div-weather">
+                        
+                        { 
+                        //  IF WEATHER
+                        weather !== null ? (
                         <>
                             <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>  
-                            <img id="weather-icon" src= {weather.current.condition.icon} />
-                        </>
-                        ) : <p>Loading...</p>}
+                            <img id="weather-icon" src= {weather.current.condition.icon} />                        
+                        </>     ) 
+
+                        :   // ELSE
+                        <p>Loading...</p>   
+                        }
+                        
+
+                        { 
+                        //  IF DOLAR BLUE
+                        bluePrice !== undefined ? (
+                            <p style={{marginLeft: '15px'}}>Dólar Blue: ${bluePrice.blue.value_sell}</p>
+                        )
+                        :   // ELSE
+                        <p style={{marginLeft: '15px'}}>Loading...</p>  
+                        }
                     </div>
             </div>
         </div>

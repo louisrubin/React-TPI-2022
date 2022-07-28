@@ -2,13 +2,27 @@
 import { DateTime } from 'luxon'
 
 const Functions = {
+
+    fetchBlue: async (setBlue, url) => {
+        // DOLAR BLUE API
+        try{
+            const response = await fetch(url)
+            const responseJSON = await response.json()
+            setBlue(responseJSON)
+
+        }catch(err){
+            console.log('ERROR ', err)
+            setBlue(undefined)          // set Blue to undefined
+        }
+    },
+
     fetchNews: async (setAllResp, url, pages, setPages) => {
             // NEWS API
             try {
                 setAllResp(undefined)
 
                 const response = await fetch(url)
-                const responseJSON = await response.json()  //.reject() to reject promise
+                const responseJSON = await response.json()
                 setAllResp(responseJSON)
 
                 if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
@@ -16,8 +30,8 @@ const Functions = {
                 }
                 
 
-            } catch (e) {
-                console.log('ERROR ', e)
+            } catch (err) {
+                console.log('ERROR ', err)
                 const objError = {
                     articles: null,
                     message: 'An error occurred'
@@ -31,10 +45,10 @@ const Functions = {
         try {
             
             const response = await fetch(url)
-            const responseJSON = await response.json()  //.reject() to reject promise
+            const responseJSON = await response.json()
             setWeather(responseJSON)
-        } catch (e) {
-            console.log('ERROR', e)
+        } catch (err) {
+            console.log('ERROR', err)
             setWeather(null)        // set weather to null
         }
     },

@@ -45,7 +45,7 @@
     font-size: 1em;
     margin: 0;
 }
-#div-weather {
+.div-weather {
     display: flex;
     align-items: center;
 }
