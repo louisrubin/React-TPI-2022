@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './OneNews.css';
 
 function OneNews() {
@@ -15,6 +15,11 @@ function OneNews() {
             <a href="#">
                 <button id='toNews-Btn'>IR A LA NOTICIA</button>
             </a>
+
+            <Link to='/'>
+                <button>INICIO</button>
+            </Link>
+
         </div>
     )
 }
