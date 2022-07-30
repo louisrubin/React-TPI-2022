@@ -16,7 +16,7 @@ const Functions = {
         }
     },
 
-    fetchNews: async (setAllResp, url, pages, setPages) => {
+    fetchNews: async (setAllResp, url, newsPerPages, setNewsPerPages) => {
             // NEWS API
             try {
                 setAllResp(undefined)
@@ -25,8 +25,8 @@ const Functions = {
                 const responseJSON = await response.json()
                 setAllResp(responseJSON)
 
-                if(responseJSON.totalResults < pages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
-                    setPages(responseJSON.totalResults)
+                if(responseJSON.totalResults < newsPerPages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
+                    setNewsPerPages(responseJSON.totalResults)
                 }
                 
 
@@ -54,7 +54,8 @@ const Functions = {
     },
 
     formListener: (states) => {
-        const { setSearch, setLanguage, setPages } = states
+        const { setSearch, setLanguage, setNewsPerPages } = states
+        
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
@@ -83,7 +84,7 @@ const Functions = {
                 const data = Object.fromEntries(new FormData(e.target) )
                 setSearch(data.search)
                 setLanguage( data.language.slice(0, 2) )
-                setPages(data.pages)
+                setNewsPerPages(data.pages)
             }
         )
     },
@@ -96,11 +97,10 @@ const Functions = {
     
             const Time = `${newDate} - ${ ('0' + Date.c.hour).slice(-2) }:${ ('0' + Date.c.minute).slice(-2) }hs`   // método slice(-2) - shorturl.at/klrxZ
             return Time
-
         }
-        
         //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     },
+
 
     setTitleFunction: (newTitle) => {
         // SET TITLE DYNAMICALLY TO THE DOCUMENT

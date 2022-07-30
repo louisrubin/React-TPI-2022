@@ -11,7 +11,8 @@ import NotFound_Results from './NotFound_Results';
 
 
 function NewsConteiner(props) {
-    const { allResp } = props
+    const { allResp  } = props
+    
 
     if ( allResp.totalResults === 0){
         //  no results found
@@ -19,12 +20,11 @@ function NewsConteiner(props) {
             <NotFound_Results noResults={true} />
         )
     }
-
     else if (allResp.articles !== null){
         // if articles !== null
         return(
             allResp.articles.map( (news, index ) => {
-                const publishedAt = Functions.transformDate(news.publishedAt)    // import FetchApi
+                const publishedAt = Functions.transformDate(news.publishedAt)
                 const obj = { news, index, publishedAt} // un objeto como param
 
                 if (news.urlToImage === null){
@@ -51,24 +51,25 @@ function NewsConteiner(props) {
 function Main() {
     Functions.setTitleFunction('INFOR-NEWS')    // set title dynamically
     const [search, setSearch] = useState('argentina')
-    const [pages, setPages] = useState(8)    // if (totalResults < 10 { pages = totalResults })
+    const [newsPerPages, setNewsPerPages] = useState(8)
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
     
-    const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+    const urlNews = `https://newsapi.org/v2/everything?q=${search}&pageSize=${newsPerPages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
-    
+
+    // component did mount 
     useEffect( () =>{
-        Functions.fetchNews(setAllResp, url, pages, setPages)     // import SET ALL RESP & PAGES
-        Functions.formListener( {setSearch, setLanguage, setPages} )
-    }, [search, language, pages])   // dependencias del useEffect
-
+        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)     // import SET ALL RESP & PAGES
+        Functions.formListener( {setSearch, setLanguage, setNewsPerPages} )
+    }, [search, language, newsPerPages])    // useEffect's dependencies
+    
     
 
     // RETURN MAIN()
     return(
         <>
-            <FormSearch defValOpt={pages} />
+            <FormSearch defValOpt={newsPerPages} />
             
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">
@@ -76,7 +77,7 @@ function Main() {
                         </div>
                     :
                     <>
-                        <TotalResults viewing={pages} totalResults={allResp} />
+                        <TotalResults viewing={newsPerPages} totalResults={allResp} />
                         
                         <div className="conteiner-news">
                             <NewsConteiner allResp={allResp} />
