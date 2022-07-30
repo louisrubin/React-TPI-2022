@@ -53,6 +53,10 @@ function Main() {
     const [pages, setPages] = useState(8)    // if (totalResults < 10 { pages = totalResults })
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
+
+    const title = document.getElementsByTagName('title')[0]
+    title.innerHTML = 'Inicio'
+    console.log(title)
     
     const url = `https://newsapi.org/v2/everything?q=${search}&pageSize=${pages}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
