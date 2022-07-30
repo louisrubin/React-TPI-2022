@@ -102,6 +102,11 @@ const Functions = {
         //  console.log('Fecha: ', DateTime.fromISO(time).toLocaleString(DateTime.DATE_MED))    // 8 jul 2022
     },
 
+    setTitleFunction: (newTitle) => {
+        // SET TITLE DYNAMICALLY TO THE DOCUMENT
+        const title = document.getElementsByTagName('title')[0]
+        title.innerHTML = newTitle
+    },
 
     
 }
