@@ -69,7 +69,7 @@ function Main() {
     // RETURN MAIN()
     return(
         <>
-            <FormSearch defValOpt={newsPerPages} />
+            <FormSearch defValOpt={newsPerPages} defValSearch={search} />
             
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">

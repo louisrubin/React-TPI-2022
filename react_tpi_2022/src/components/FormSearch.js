@@ -8,7 +8,7 @@ function FormSearch(props) {
         <>
         <form id="form-search">
             <div id='inp-smll'>
-                <input id="inp-search" type="search" name="search" placeholder="Buscar" />
+                <input id="inp-search" type="search" name="search" placeholder="Buscar" defaultValue={props.defValSearch} />
                 <small id="smll-caract">Ingrese un mínimo de 3 caracteres</small>
             </div>
             
