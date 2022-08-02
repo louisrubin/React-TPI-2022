@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
 import Functions from './Functions'
+import { Link } from 'react-router-dom'
 
 
 
@@ -11,7 +12,6 @@ function Header() {
     const urlBlue = 'https://api.bluelytics.com.ar/v2/latest'
     const [weather, setWeather ] = useState(null)
     const [bluePrice, setBlue ] = useState()
-    console.log('BLUE', bluePrice)
     
 
     // USE EFFECT
@@ -29,7 +29,7 @@ function Header() {
         <div id="header">
             <div id='over'>
                 <h1 id='main-title'>INFOR-NEWS</h1>
-                <a href='#' >ABOUT</a>
+                <Link to='/about'>Sobre Mí</Link>
             </div>
             
             <div id="header-sub-info">
