@@ -1,28 +1,30 @@
-import { Link, useParams } from 'react-router-dom';
-import './OneNews.css';
+// import { Link, useParams } from 'react-router-dom';
+// import './OneNews.css';
 
-function OneNews() {
-    const { title, author, description, published } = useParams();
-    console.log(title)
+// function OneNews() {
 
-    return (
-        <div className='conteiner-news' id='one-news-page'>
-            <h1> {title} </h1>
-            <small> {published} </small>
-            <h2> {author} </h2>
-            <p> {description} </p>
+//     // const { title, author, description, published } = useParams();
+//     const { title } = useParams();
+//     console.log(title)
 
-            <a href="#">
-                <button id='toNews-Btn'>IR A LA NOTICIA</button>
-            </a>
+//     return (
+//         <div className='conteiner-news' id='one-news-page'>
+//             <h1> {title} </h1>
+//             {/* <small> {published} </small>
+//             <h2> {author} </h2>
+//             <p> {description} </p> */}
 
-            <Link to='/'>
-                <button>INICIO</button>
-            </Link>
+//             <a href="#">
+//                 <button id='toNews-Btn'>IR A LA NOTICIA</button>
+//             </a>
 
-        </div>
-    )
-}
+//             <Link to='/'>
+//                 <button>INICIO</button>
+//             </Link>
+
+//         </div>
+//     )
+// }
 
 
-export default OneNews;
+// export default OneNews;

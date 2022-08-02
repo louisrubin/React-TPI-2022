@@ -6,7 +6,7 @@ import Main from "./components/News";
 import { Route, Routes } from 'react-router-dom'
 import Footer from "./components/Footer";
 import NotFound_Results from "./components/NotFound_Results";
-import OneNews from "./components/OneNews";
+// import OneNews from "./components/OneNews";
 
 
 class App extends Component {
@@ -17,8 +17,7 @@ class App extends Component {
         <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/about' element={<Header />} />
-			<Route path='/news/:title/:author/:description/:published' element={ <OneNews /> } />
-
+			{/* <Route path='/news/:title' element={ <OneNews /> } /> */}
             <Route path="*" element={<NotFound_Results noResults={false} />} /> 
         </Routes>
         
