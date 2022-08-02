@@ -1,0 +1,37 @@
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 130px;
+    left: 10%;
+    width: 80%;
+}
+.left {
+    background-color: rgba(255, 239, 216, 1);
+    padding: 15px 10px 15px 30px;
+    margin-right: 30px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgb(0,0,0,0.2);
+}
+
+.right img {
+    height: 800px;
+    width: 400px;
+    border-radius: 8px;
+    user-select: none;
+}
+
+.p-myname {
+    font-size: 1.8em;
+}
+
+.left p {
+    font-family: 'Spectral';
+    font-weight: 500;
+    font-size: 1.1em;
+    max-width: 97%;
+    margin: 0;
+    padding: 15px 0 5px 0;
+}
+
