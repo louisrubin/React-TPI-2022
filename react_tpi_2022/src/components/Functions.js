@@ -54,17 +54,21 @@ const Functions = {
     },
 
     formListener: (states) => {
-        const { setSearch, setLanguage, setNewsPerPages } = states
+        const { setSearch, setLanguage, setNewsPerPages, setPagination } = states
         
         const input = document.querySelector("#form-search input")     // selecciono el input del form
+        const form = document.querySelector('#form-search')
+
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
         textAlert.classList.add("hiden")    // agrega la clase CSS 'hiden'
         submitBtn.disabled = true
 
-        input.addEventListener('blur', () => {
-            // event listener de tipo blur: valida longitud y desactiva el boton 'submit'
-            if (input.value.length < 3 ){
+
+        const inputValueGreaterThan = (value) => {
+            // if input value is greater than
+
+            if (input.value.length < value ){
                 input.classList.add('lessThanThree')    // borde rojo al input
                 textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
                 submitBtn.disabled = true               // desactiva el button
@@ -74,17 +78,21 @@ const Functions = {
                 textAlert.classList.add("hiden")
                 submitBtn.disabled = false
             }
-        })
+        }
+
+        // FORM EVENT LISTENER FOR ENABLE 'SUBMIT BUTTON'
+        form.addEventListener('blur',  inputValueGreaterThan(3)  )  
         
-        
-        document.getElementById('form-search')
-            .addEventListener('submit', e => {      // form listener on Submit event
+
+        // FORM EVENT LISTENER FOR 'SUBMIT EVENT'
+        form.addEventListener('submit', e => {      // form listener on Submit event
                 e.preventDefault()
 
                 const data = Object.fromEntries(new FormData(e.target) )
                 setSearch(data.search)
                 setLanguage( data.language.slice(0, 2) )
                 setNewsPerPages(data.pages)
+                setPagination(1)    // SET PAGINATION TO 1
             }
         )
     },

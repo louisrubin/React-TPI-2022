@@ -63,7 +63,7 @@ function Main() {
     // component did mount 
     useEffect( () =>{
         Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)     // import SET ALL RESP & PAGES
-        Functions.formListener( {setSearch, setLanguage, setNewsPerPages} )
+        Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination} )
     }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
     
     
