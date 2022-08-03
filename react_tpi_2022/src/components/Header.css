@@ -17,9 +17,9 @@
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
 }
-#over a {
+ a {
     font-family: 'Oswald';
     font-weight: 400;
     font-size: 1.18em;
@@ -29,14 +29,15 @@
 
 #main-title {
     font-family: 'EB Garamond';
-    font-size: 2.3em;
+    font-size: 2.5em;
+    text-decoration: none;
     margin: 0;
     user-select: none;
 }
 #header-sub-info {
     display: flex;
     
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 3px;
 }
 #header-sub-info p {

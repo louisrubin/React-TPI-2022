@@ -28,8 +28,9 @@ function Header() {
         
         <div id="header">
             <div id='over'>
-                <h1 id='main-title'>INFOR-NEWS</h1>
-                <Link to='/about'>Sobre Mí</Link>
+                <Link to='/' id='main-title'>
+                    INFOR-NEWS
+                </Link>
             </div>
             
             <div id="header-sub-info">
