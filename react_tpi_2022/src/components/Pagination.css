@@ -1,0 +1,12 @@
+.pagination-container {
+    display: flex;
+    justify-content: center;
+   
+}
+
+nav {
+    background-color: aquamarine;
+    margin: 30px 12px 0 12px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
