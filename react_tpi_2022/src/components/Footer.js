@@ -2,6 +2,7 @@ import './Footer.css'
 import gh from '../assets/github.svg'
 import lk from '../assets/linkedin.svg'
 import yt from '../assets/youtube.svg'
+import { Link } from 'react-router-dom'
 
 function Footer() {
     return(
@@ -20,7 +21,7 @@ function Footer() {
             </div>
 
             <div id='copyright'>
-                Rubin Azas Miguel Angel Luis - Informatorio Chaco, Etapa 3 (Julio 2022)
+                Rubin Azas Miguel Angel Luis - Informatorio Chaco, Etapa 3 (Julio 2022) - <Link to='/about' id='a-aboutMe'>Sobre Mí</Link>
             </div>
         </footer>
     )
