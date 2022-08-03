@@ -9,6 +9,7 @@
 }
 .left {
     background-color: rgba(255, 239, 216, 1);
+    width: 50%;
     padding: 15px 10px 15px 30px;
     margin-right: 30px;
     border-radius: 8px;
@@ -16,14 +17,13 @@
 }
 
 .right img {
-    height: 800px;
-    width: 400px;
+    width: 100%;
     border-radius: 8px;
     user-select: none;
 }
 
-.p-myname {
-    font-size: 1.8em;
+#p-myname {
+    font-size: 1.5em;
 }
 
 .left p {
@@ -33,5 +33,10 @@
     max-width: 97%;
     margin: 0;
     padding: 15px 0 5px 0;
+}
+
+#date {
+    font-size: 0.8em;
+    text-align: end;
 }
 

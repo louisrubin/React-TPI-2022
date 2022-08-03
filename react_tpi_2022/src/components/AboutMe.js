@@ -12,8 +12,8 @@ function AboutMe() {
             </style>
             <div className="about-container">
                 <div className="left">
-                    <p className="p-myname"><b>Hola! Mi nombre es Luis Rubín</b>.<br/>
-                        Tengo 20 años y soy de Resistencia, Chaco, Argentina.
+                    <p><b id="p-myname">Hola! Mi nombre es Luis Rubín</b>.<br/>
+                        Tengo 20 años y soy de Resistencia, Chaco, Argentina, y aquí va un poco de historia sobre mí :)
                     </p>
                     <p>
                         Crecí en Resistencia y cursé mi etapa de secundaria allí,
@@ -29,10 +29,10 @@ function AboutMe() {
                     <p>
                         Fue aquí donde conocí la programación ya que en 3er año (2017), luego de haber elegido IPP,
                         tuve la materia "Introducción a la Programación", el cual estudiábamos el lenguaje Pascal, y durante todo ese año no logré entender nada :(. <br/>
-                        No fue hasta el año siguiente (dic 2018) que me veía obligado a aprobarla, entonces tuve que practicar mucho y logré aprobar jaja.
+                        No fue hasta el año siguiente (dic 2018) que me veía obligado a aprobarla, entonces tuve que practicar mucho y logré aprobar :).
                     </p>
                     <p>
-                        El siguiente año, luego de un año con Pascal, seguía Python, el cual me gustaba bastante por lo fácil que era escribir código comparado con Pascal.<br/>
+                        Al siguiente año, luego de un año con Pascal, seguía Python, el cual me gustaba bastante por lo fácil que era escribir código comparado con Pascal.<br/>
                         Pero no fue hasta el año siguiente (2019) estudiando Java, que mi cerebro hizo clic luego de que un amigo me explicara algo tan básico que yo no entendía, fue ahí cuando empecé a entender lo que era la programación.
                     </p>
                     <p>
@@ -45,8 +45,12 @@ function AboutMe() {
                     <p>
                         En esta 3er etapa del Info hay 3 materias a elegir para cursar durante 4 meses en modo virtual, yo elegí "Testing" y "React".<br/>
                         Ambas materias me encantaron, sobre todo Testing, gracias a uno de los mejores profesores que pude tener jaja, gracias a él conocí las oficinas de Globant Chaco, ya que él trabaja ahí, entonces pidió permiso para que la última clase del curso de Testing sea presencial, y así fue :')<br/>
-                        Gracias Juan!
+                        
                     </p>
+                    <p>
+                        Eso fue un poco de historia sobre mí, podría contar muchas cosas más pero no. Espero les haya gustado este proyecto hecho por mí con ReactJs!
+                    </p>
+                    <p id="date">02.08.2022</p>
                 </div>
 
                 <div className="right">
