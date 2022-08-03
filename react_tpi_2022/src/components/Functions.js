@@ -58,6 +58,7 @@ const Functions = {
         
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const form = document.querySelector('#form-search')
+        const selects = document.querySelectorAll('#form-search select')
 
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
@@ -65,23 +66,62 @@ const Functions = {
         submitBtn.disabled = true
 
 
-        const inputValueGreaterThan = (value) => {
-            // if input value is greater than
+        // const inputValueGreaterThan = (value) => {
+        //     // if input value is greater than
 
-            if (input.value.length < value ){
-                input.classList.add('lessThanThree')    // borde rojo al input
-                textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
-                submitBtn.disabled = true               // desactiva el button
+        //     if (input.value.length < value ){
+        //         // if value is less than 'value'
+        //         input.classList.add('lessThanThree')    // borde rojo al input
+        //         textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
+        //         submitBtn.disabled = true               // desactiva el button
             
-            } else{
-                input.classList.remove('lessThanThree')
-                textAlert.classList.add("hiden")
-                submitBtn.disabled = false
-            }
-        }
+        //     } else{
+        //         // else value is greater than 'value'
+        //         input.classList.remove('lessThanThree')
+        //         textAlert.classList.add("hiden")
+        //         submitBtn.disabled = false
+        //     }
+        // }
 
-        // FORM EVENT LISTENER FOR ENABLE 'SUBMIT BUTTON'
-        form.addEventListener('blur',  inputValueGreaterThan(3)  )  
+        // EVENT LISTENER FOR ENABLE 'FORM BUTTON'
+        input.addEventListener('blur', () => {
+                // if input value is greater than
+
+                if (input.value.length < 3 ){
+                    // if value is less than 'value'
+                    input.classList.add('lessThanThree')    // borde rojo al input
+                    textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
+                    submitBtn.disabled = true               // desactiva el button
+                
+                } else{
+                    // else value is greater than 'value'
+                    input.classList.remove('lessThanThree')
+                    textAlert.classList.add("hiden")
+                    submitBtn.disabled = false
+                }
+            }  
+        )  
+        // selects.addEventListener('blur', () => {
+        //     // if input value is greater than
+
+        //         if (input.value.length < 3 ){
+        //             // if value is less than 'value'
+        //             input.classList.add('lessThanThree')    // borde rojo al input
+        //             textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
+        //             submitBtn.disabled = true               // desactiva el button
+                
+        //         } else{
+        //             // else value is greater than 'value'
+        //             input.classList.remove('lessThanThree')
+        //             textAlert.classList.add("hiden")
+        //             submitBtn.disabled = false
+        //         }
+        //     }  
+        // )  
+
+
+
+
         
 
         // FORM EVENT LISTENER FOR 'SUBMIT EVENT'
