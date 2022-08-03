@@ -1,12 +1,13 @@
 .conteiner-news {
-    position: relative;
+    /* position: relative; */
     display: flex;
     z-index: 90;
-    top: 120px;
+    /* top: 120px; */
     flex-flow: row wrap;
     justify-content: space-evenly;
     
     width: 90%;
+    margin-top: 8%;
     margin-left: 5%;
 }
 
