@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 
 import Functions from "./Functions";
 import NewsBox from "./NewsBox";
@@ -6,26 +5,17 @@ import NotFound_Results from './NotFound_Results';
 import notFoundicon from '../assets/file-delete.png';
 
 function NewsContainer(props) {
-    const { allResp, setViewing  } = props
-    Functions.setTitleFunction('Buscar')    // set title dynamically
+    const { search, allResp, setViewing  } = props
+    Functions.setTitleFunction(`Buscando '${search}'`)    // set title dynamically
     
     // Returns an imperative method for changing the location. 
     // Used by s, but may also be used by other elements to change the location.
-    const navigate = useNavigate()
-    console.log('all resp', allResp)
 
 
-    
     if (allResp.status === "ok"){
-        // if articles !== null
-        // navigate(`/search/${search}`)
-        if ( allResp.totalResults === 0){
-            //  no results found
-            return(
-                navigate('/noResults')
-            )   // redirect to "/noResults" path
-            
-        } else {
+        // if status === "ok"
+
+        if ( allResp.totalResults !== 0){        
             return(
                 allResp.articles.map( (news, index ) => {
                     const publishedAt = Functions.transformDate(news.publishedAt)
@@ -38,12 +28,18 @@ function NewsContainer(props) {
                         NewsBox(obj)
                     )
                 })
+            ) 
+        }else {
+            // status === 0
+            return(
+                < NotFound_Results noResults={true} />
             )
-
+            
         }
     }
+
     else{
-        // if articles === null
+        // if status !== "ok"
         return(
             <>
                 <div className='error-div'>

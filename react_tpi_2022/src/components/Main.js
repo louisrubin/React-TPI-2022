@@ -1,4 +1,3 @@
-import './News.css';
 import { useEffect, useState } from "react";
 
 import Functions from "./Functions";
@@ -11,7 +10,6 @@ import NewsContainer from './NewsContainer';
 
 
 function Main() {
-    Functions.setTitleFunction('INFOR-NEWS')    // set title dynamically
     const [search, setSearch] = useState('argentina')
     const [newsPerPages, setNewsPerPages] = useState(8)
     const [pagination, setPagination ] = useState(1)
@@ -44,7 +42,7 @@ function Main() {
                         <TotalResults totalResults={allResp} viewing={newsPerPages} />
                         
                         <div className="conteiner-news">
-                            <NewsContainer allResp={allResp} setViewing={setNewsPerPages} />
+                            <NewsContainer allResp={allResp} setViewing={setNewsPerPages} search={search} />
                         </div>
 
                         <Pagination pagination={pagination} setPagination={setPagination}/>

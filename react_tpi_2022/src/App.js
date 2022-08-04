@@ -2,12 +2,12 @@ import { Component } from "react";
 
 import './App.css'
 import Header from "./components/Header";
-import Main from "./components/News";
-import { Navigate, Route, Routes } from 'react-router-dom'
+import Main from "./components/Main";
+import { Route, Routes } from 'react-router-dom'
 import Footer from "./components/Footer";
 import NotFound_Results from "./components/NotFound_Results";
 import AboutMe from "./components/AboutMe";
-import FormSearch from "./components/FormSearch";
+import Home from "./components/HomePage";
 // import OneNews from "./components/OneNews";
 
 
@@ -18,7 +18,7 @@ class App extends Component {
         <Header />
 
         <Routes>
-            <Route path='/' element={<h1 style={{marginTop: '100px'}}>HOME</h1>} />
+            <Route path='/' element={ <Home />} />
 			<Route path="/buscar" element={ <Main />} />
 			<Route path="/noResults" element={ <NotFound_Results noResults={true} /> } />
 
