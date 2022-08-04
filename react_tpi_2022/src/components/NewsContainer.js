@@ -6,7 +6,7 @@ import NotFound_Results from './NotFound_Results';
 import notFoundicon from '../assets/file-delete.png';
 
 function NewsContainer(props) {
-    const { allResp  } = props
+    const { allResp, setViewing  } = props
     Functions.setTitleFunction('Buscar')    // set title dynamically
     
     // Returns an imperative method for changing the location. 
@@ -45,10 +45,14 @@ function NewsContainer(props) {
     else{
         // if articles === null
         return(
-            <div className='error-div'>
-                <p>ERROR LOADING (Refresh)</p>
-                <small style={{fontSize: '0.6em'}}>code: {allResp.code}</small>
-            </div>
+            <>
+                <div className='error-div'>
+                    <p>ERROR LOADING (Refresh)</p>
+                    <small style={{fontSize: '0.6em'}}>code: {allResp.code}</small>
+                </div>
+                { setViewing(0)    // set Viewing pages to 0 
+                } 
+            </>
         )
     }
 }

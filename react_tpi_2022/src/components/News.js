@@ -23,7 +23,7 @@ function Main() {
 
     // component did mount 
     useEffect( () =>{
-        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)     // import SET ALL RESP & PAGES
+        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
         Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination} )
 
     }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
@@ -41,13 +41,13 @@ function Main() {
                         </div>
                     :
                     <>
-                        <TotalResults viewing={newsPerPages} totalResults={allResp} />
+                        <TotalResults totalResults={allResp} viewing={newsPerPages} />
                         
                         <div className="conteiner-news">
-                            <NewsContainer allResp={allResp} />
+                            <NewsContainer allResp={allResp} setViewing={setNewsPerPages} />
                         </div>
 
-                        <Pagination pagination={pagination} setPagination={setPagination} />
+                        <Pagination pagination={pagination} setPagination={setPagination}/>
                     </>
                 }
         </>
