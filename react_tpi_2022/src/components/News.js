@@ -25,6 +25,7 @@ function Main() {
     useEffect( () =>{
         Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)     // import SET ALL RESP & PAGES
         Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination} )
+
     }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
     
     
@@ -43,7 +44,7 @@ function Main() {
                         <TotalResults viewing={newsPerPages} totalResults={allResp} />
                         
                         <div className="conteiner-news">
-                            <NewsContainer allResp={allResp} search={search} />
+                            <NewsContainer allResp={allResp} />
                         </div>
 
                         <Pagination pagination={pagination} setPagination={setPagination} />
