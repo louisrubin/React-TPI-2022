@@ -18,8 +18,7 @@ function NewsContainer(props) {
         if ( allResp.totalResults !== 0){        
             return(
                 allResp.articles.map( (news, index ) => {
-                    const publishedAt = Functions.transformDate(news.publishedAt)
-                    const obj = { news, index, publishedAt} // un objeto como param
+                    const obj = { news, index } // un objeto como param
     
                     if (news.urlToImage === null){
                         news.urlToImage = notFoundicon
