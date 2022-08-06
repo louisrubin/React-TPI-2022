@@ -23,12 +23,10 @@ function NotFound_Results( { noResults } ) {
     // MAIN RETURN 
     return(
         <div id='conteiner-notFound'>
-            <div id='div-inside'>
-                <img id='img-notFound' src={img} />
-                <p>{messageP}</p>
-                
-                <Link to='/'>Back to Home</Link>
-            </div>
+            <img id='img-notFound' src={img} />
+            <p>{messageP}</p>
+            
+            <Link to='/buscar'>Back to Home</Link>
         </div>
     )
 } 

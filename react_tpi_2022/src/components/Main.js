@@ -6,12 +6,13 @@ import TotalResults from './TotalResults'
 import LoadingSpinner from './Spinner';
 import Pagination from './Pagination';
 import NewsContainer from './NewsContainer';
+import NotFound_Results from "./NotFound_Results";
 
 
 
 function Main() {
     const [search, setSearch] = useState('argentina')
-    const [newsPerPages, setNewsPerPages] = useState(8)
+    const [newsPerPages, setNewsPerPages] = useState(12)
     const [pagination, setPagination ] = useState(1)
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
@@ -41,9 +42,18 @@ function Main() {
                     <>
                         <TotalResults totalResults={allResp} viewing={newsPerPages} />
                         
-                        <div className="conteiner-news">
-                            <NewsContainer allResp={allResp} setViewing={setNewsPerPages} search={search} />
-                        </div>
+
+                        {   // IF HAVE NOT RESULTS
+                         allResp.totalResults === 0 
+                        ?   
+                            <NotFound_Results noResults={true} />
+                                                    
+                        :
+                            <div className="conteiner-news">
+                                <NewsContainer allResp={allResp} setViewing={setNewsPerPages} search={search} />
+                            </div>  
+                        }
+                        
 
                         <Pagination pagination={pagination} setPagination={setPagination}/>
                     </>
