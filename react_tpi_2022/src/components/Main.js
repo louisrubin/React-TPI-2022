@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import Functions from "./Functions";
 import FormSearch from './FormSearch';
@@ -9,19 +10,22 @@ import NewsContainer from './NewsContainer';
 import NotFound_Results from "./NotFound_Results";
 
 
-
 function Main() {
+    const { title } = useParams()
+    
     const [search, setSearch] = useState('argentina')
     const [newsPerPages, setNewsPerPages] = useState(12)
     const [pagination, setPagination ] = useState(1)
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
-    //                                                              searchIn=title (The fields to restrict your 'q' search to.)
+
+
     const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
 
     // component did mount 
     useEffect( () =>{
+        if (title){     setSearch(title)    }   // if have 'title' from params so set Search with that
         Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
         Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination} )
 
@@ -32,7 +36,7 @@ function Main() {
     // RETURN MAIN()
     return(
         <>
-            <FormSearch defValOpt={newsPerPages} defValSearch={search} />
+            <FormSearch defValOpt={newsPerPages} defValSearch={title} />
             
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">

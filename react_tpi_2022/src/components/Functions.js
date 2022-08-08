@@ -59,7 +59,6 @@ const Functions = {
         
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const form = document.querySelector('#form-search')
-        const selects = document.querySelectorAll('#form-search select')
 
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
@@ -98,9 +97,6 @@ const Functions = {
             }
         )
     },
-
-
-
 
 
     transformDate: (time) => {
