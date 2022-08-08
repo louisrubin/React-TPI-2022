@@ -22,12 +22,7 @@ const Functions = {
 
                 const response = await fetch(url)
                 const responseJSON = await response.json()
-                setAllResp(responseJSON)
-
-                if(responseJSON.totalResults < newsPerPages){      // si totalResults es menor a las pages seleccionadas usa -setPages()-
-                    setNewsPerPages(responseJSON.totalResults)
-                }
-                
+                setAllResp(responseJSON)          
 
             } catch (err) {
                 console.log('ERROR ', err)
