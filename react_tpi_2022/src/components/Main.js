@@ -16,6 +16,7 @@ function Main() {
     
     const [search, setSearch] = useState('argentina')
     const [newsPerPages, setNewsPerPages] = useState(12)
+    const [viewing , setViewing ] = useState()
     const [pagination, setPagination ] = useState(1)
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
@@ -47,7 +48,7 @@ function Main() {
                         </div>
                     :
                     <>
-                        <TotalResults totalResults={allResp} viewing={newsPerPages} />
+                        <TotalResults totalResults={allResp} viewing={viewing} />
                         
 
                         {   // IF HAVE NOT RESULTS
@@ -57,7 +58,7 @@ function Main() {
                                                     
                         :
                             <div className="conteiner-news">
-                                <NewsContainer allResp={allResp} setViewing={setNewsPerPages} search={search} />
+                                <NewsContainer allResp={allResp} setViewing={setViewing} search={search} />
                             </div>  
                         }
                         

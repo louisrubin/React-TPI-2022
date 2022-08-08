@@ -14,15 +14,19 @@ function NewsContainer(props) {
 
     if (allResp.status === "ok"){
         // if status === "ok"
+        let viewing = 0
 
         if ( allResp.totalResults !== 0){        
             return(
                 allResp.articles.map( (news, index ) => {
                     const obj = { news, index } // un objeto como param
+                    viewing += 1    // viewing + 1 for iteration of news
     
                     if (news.urlToImage === null){
                         news.urlToImage = notFoundicon
                     }
+                    setViewing(viewing)     // set the 'setViewing' with the final viewing's value
+
                     return(
                         NewsBox(obj)
                     )
