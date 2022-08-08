@@ -1,7 +1,6 @@
 .home-container{
-    display: flex;
+    
     z-index: 90;
-    flex-flow: column wrap;
     align-content: center;
     
     width: 90%;
