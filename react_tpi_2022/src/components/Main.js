@@ -12,7 +12,7 @@ import NotFound_Results from "./NotFound_Results";
 
 function Main() {
     const navigateMain = useNavigate()
-    const { title, pageParam } = useParams()
+    const { titleParam, pageParam } = useParams()
     
     const [search, setSearch] = useState('argentina')
     const [newsPerPages, setNewsPerPages] = useState(12)
@@ -26,13 +26,11 @@ function Main() {
 
     // component did mount 
     useEffect( () =>{
-        if (title){     setSearch(title)    }   // if have 'title' from params so set Search with that
+        if (titleParam){     setSearch(titleParam)    }   // if have 'title' from params so set Search with that
         if (pageParam) {  setPagination(pageParam) }
 
-        
-        console.log('pagination',pagination);
-        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
         Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination, pagination, navigateMain } )
+        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
 
     }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
     
@@ -41,7 +39,7 @@ function Main() {
     // RETURN MAIN()
     return(
         <>
-            <FormSearch defValOpt={newsPerPages} defValSearch={title} />
+            <FormSearch defValOpt={newsPerPages} defValSearch={titleParam} />
             
                 { allResp ===  undefined 
                     ?   <div className="conteiner-news">

@@ -15,7 +15,7 @@ const Functions = {
         }
     },
 
-    fetchNews: async (setAllResp, url, newsPerPages, setNewsPerPages) => {
+    fetchNews: async (setAllResp, url, setNewsPerPages, newsPerPages) => {
             // NEWS API
             try {
                 setAllResp(undefined)
@@ -55,7 +55,7 @@ const Functions = {
 
 
     formListener: (states) => {
-        const { setSearch, setLanguage, setNewsPerPages, setPagination, pagination, navigateMain } = states
+        const { setSearch, setLanguage, setNewsPerPages, setPagination, navigateMain } = states
         
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const form = document.querySelector('#form-search')

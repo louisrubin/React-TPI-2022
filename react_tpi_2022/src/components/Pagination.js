@@ -28,15 +28,15 @@ function Pagination( {search, pagination, navigateMain, setPagination} ) {
         <div className="pagination-container">
             <div className='pagination-ELEMENTS'>
 
-                <button className='pagination btn-pagination' onClick={prevPage}>
+                <button id='btn-prev' className='pagination btn-pagination' onClick={prevPage}>
                     <img src={prevIcon} />
                 </button>
 
-                <button className='pagination' id='number-Page'>
+                <button id='number-Page' className='pagination'>
                     {pagination}
                 </button>
 
-                <button className='pagination btn-pagination' onClick={nextPage} disabled={true}>
+                <button id='btn-next' className='pagination btn-pagination' onClick={nextPage}>
                     <img src={nextIcon} />
                 </button>
 
