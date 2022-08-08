@@ -11,30 +11,34 @@ function Pagination( {search, pagination, navigateMain, setPagination} ) {
         if(pagination > 1){
             // if 'pagination' is less than 1 it doesn't nothing
             const newPagination = paginationINT -= 1
-
-            navigateMain(`/buscar/${search}/${newPagination}`)    // 'navigateMain' function
-            return setPagination(newPagination)     
+            setPagination(newPagination) 
+                // 'navigateMain' function
+            return navigateMain(`/buscar/${search}/${newPagination}`)
         }
     }
 
     const nextPage = () => {
         const newPagination = paginationINT += 1
-        navigateMain(`/buscar/${search}/${newPagination}`)
-        return setPagination(newPagination)
+        setPagination(newPagination)
+        
+        return navigateMain(`/buscar/${search}/${newPagination}`)
     }
 
     return(
         <div className="pagination-container">
             <div className='pagination-ELEMENTS'>
-                <nav onClick={prevPage}>
+
+                <button className='pagination btn-pagination' onClick={prevPage}>
                     <img src={prevIcon} />
-                </nav>
-                <nav id='number-Page'>
+                </button>
+
+                <button className='pagination' id='number-Page'>
                     {pagination}
-                </nav>
-                <nav onClick={nextPage}>
+                </button>
+
+                <button className='pagination btn-pagination' onClick={nextPage} disabled={true}>
                     <img src={nextIcon} />
-                </nav>
+                </button>
 
             </div>
         </div>
