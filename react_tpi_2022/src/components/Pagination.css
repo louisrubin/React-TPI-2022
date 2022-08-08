@@ -1,4 +1,6 @@
-
+.pagination-container {
+    margin-bottom: 12%;
+}
 
 .pagination-ELEMENTS {
     display: flex;

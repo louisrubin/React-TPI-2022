@@ -1,7 +1,12 @@
 footer {
     /* background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  ); */
     background-color: rgba(3, 121, 135, 0.7);
-    margin-top: 5%;
+    
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* overflow: hidden; */
 }
 #desc {
     font-family: 'Oswald';
