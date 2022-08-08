@@ -2,20 +2,25 @@ import './Pagination.css'
 import prevIcon from '../assets/arrow-prev.png'
 import nextIcon from '../assets/arrow-next.png'
 
-function Pagination( {pagination, setPagination} ) {
+function Pagination( {search, pagination, navigateMain, setPagination} ) {
+    // 'navigateMain' --> useNavigate hook from "Main component"
+
+    let paginationINT = parseInt(pagination)    // parse to Int
 
     const prevPage = () => {
-        // previous page function
-
         if(pagination > 1){
             // if 'pagination' is less than 1 it doesn't nothing
-            setPagination(pagination -= 1)
+            const newPagination = paginationINT -= 1
+
+            navigateMain(`/buscar/${search}/${newPagination}`)    // 'navigateMain' function
+            return setPagination(newPagination)     
         }
     }
 
     const nextPage = () => {
-        // next page function
-        setPagination(pagination += 1)
+        const newPagination = paginationINT += 1
+        navigateMain(`/buscar/${search}/${newPagination}`)
+        return setPagination(newPagination)
     }
 
     return(

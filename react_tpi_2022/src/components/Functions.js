@@ -55,7 +55,7 @@ const Functions = {
 
 
     formListener: (states) => {
-        const { setSearch, setLanguage, setNewsPerPages, setPagination } = states
+        const { setSearch, setLanguage, setNewsPerPages, setPagination, pagination, navigateMain } = states
         
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const form = document.querySelector('#form-search')
@@ -93,7 +93,7 @@ const Functions = {
                 setLanguage( data.language.slice(0, 2) )
                 setNewsPerPages(data.pages)
                 setPagination(1)    // SET PAGINATION TO 1
-                
+                return navigateMain(`/buscar/${data.search}/${1}`)      // Navigate MAIN component
             }
         )
     },
@@ -105,7 +105,7 @@ const Functions = {
         buscarForm.addEventListener('submit', e => {
             e.preventDefault()
             const data = Object.fromEntries( new FormData(e.target) )
-            return navigate(`/buscar/${data.buscar}`)   // return the navigate hook received from params with the value from the from
+            return navigate(`/buscar/${data.buscar}/${1}`)   // return the navigate hook received from params with the value from the from
         })
 
     },

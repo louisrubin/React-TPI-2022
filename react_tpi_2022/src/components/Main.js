@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Functions from "./Functions";
 import FormSearch from './FormSearch';
@@ -11,7 +11,8 @@ import NotFound_Results from "./NotFound_Results";
 
 
 function Main() {
-    const { title } = useParams()
+    const navigateMain = useNavigate()
+    const { title, pageParam } = useParams()
     
     const [search, setSearch] = useState('argentina')
     const [newsPerPages, setNewsPerPages] = useState(12)
@@ -19,15 +20,19 @@ function Main() {
     const [language, setLanguage] = useState('es')
     const [allResp, setAllResp] = useState()
 
+    const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
-    const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
 
 
     // component did mount 
     useEffect( () =>{
         if (title){     setSearch(title)    }   // if have 'title' from params so set Search with that
+        if (pageParam) {  setPagination(pageParam) }
+
+        
+        console.log('pagination',pagination);
         Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
-        Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination} )
+        Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination, pagination, navigateMain } )
 
     }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
     
@@ -59,7 +64,7 @@ function Main() {
                         }
                         
 
-                        <Pagination pagination={pagination} setPagination={setPagination}/>
+                        <Pagination pagination={pagination} setPagination={setPagination} navigateMain={navigateMain} search={search} />
                     </>
                 }
         </>
