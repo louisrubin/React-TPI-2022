@@ -98,6 +98,18 @@ const Functions = {
         )
     },
 
+    buscarFormListener: ( navigate ) =>{
+        // received 'navigate' hook
+        const buscarForm = document.getElementById('buscar-form')
+
+        buscarForm.addEventListener('submit', e => {
+            e.preventDefault()
+            const data = Object.fromEntries( new FormData(e.target) )
+            return navigate(`/buscar/${data.buscar}`)   // return the navigate hook received from params with the value from the from
+        })
+
+    },
+
 
     transformDate: (time) => {
         // function to transform date ISO from News API to a local String Date
