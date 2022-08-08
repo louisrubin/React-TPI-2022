@@ -1,5 +1,5 @@
 
-form {
+#form-search {
     display: flex;
     justify-content: center;
     position: relative;
@@ -11,7 +11,7 @@ form {
     font-family: 'Oswald';
     user-select: none;    
 }
-select  {
+.search-select  {
     text-transform: capitalize;
     font-family: 'Oswald';
     padding: 0 5px;
@@ -21,7 +21,7 @@ select  {
     cursor: pointer;
     outline: none;
 }
-input {
+#inp-search {
     width: 95%;
     min-width: 5%;
     height: 35px;
@@ -80,11 +80,11 @@ input {
         font-size: 0.7em;
     }
 
-    form {
+    #form-search {
         top: 53px;
     }
 
-    input {
+    #inp-search {
         font-size: 0.7em;
         width: 45%;
     }

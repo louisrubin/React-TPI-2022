@@ -13,12 +13,12 @@ function FormSearch(props) {
             </div>
             
             
-            <select name="language">
+            <select name="language" className='search-select'>
                 <option>español</option>
                 <option>english</option>
             </select>
 
-            <select name="pages" defaultValue={props.defValOpt}>
+            <select name="pages" className='search-select' defaultValue={props.defValOpt}>
                 <option>4</option>
                 <option>8</option>
                 <option>12</option>
