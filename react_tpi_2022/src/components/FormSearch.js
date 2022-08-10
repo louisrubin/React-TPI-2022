@@ -13,19 +13,19 @@ function FormSearch(props) {
             </div>
             
             
-            <select name="language" className='search-select'>
+            <select name="language" style={{marginRight: '5px'}}>
                 <option>español</option>
                 <option>english</option>
             </select>
 
-            <select name="pages" className='search-select' defaultValue={props.defValOpt}>
+            <select name="pages" defaultValue={props.defValOpt}>
                 <option>4</option>
                 <option>8</option>
                 <option>12</option>
                 <option>16</option>
             </select>
 
-            <button id="btn-submit" type="submit">Buscar</button>
+            <button id="btn-submit" className='btn-submit-styles' type="submit">Buscar</button>
         </form>
         
         </>

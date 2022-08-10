@@ -3,24 +3,30 @@
     display: flex;
     justify-content: center;
     position: relative;
-    top: 85px;
+    margin-bottom: 1%;
+    top: 90px;
     
     background-color: rgba(86, 144, 231, 0.3);
-    padding: 10px 50px;
-    padding-bottom: 5px;
+    padding: 10px;
+    padding-left: 15%;
+    padding-right: 50px;
+    padding-bottom: 7px;
+
     font-family: 'Oswald';
     user-select: none;    
 }
-.search-select  {
+#form-search select  {
     text-transform: capitalize;
     font-family: 'Oswald';
     padding: 0 5px;
-    height: 30px;
+    height: 35px;
     font-size: 1.05em;
     text-align: center;
+    border-radius: 8px;
     cursor: pointer;
     outline: none;
 }
+
 #inp-search {
     width: 95%;
     min-width: 5%;
@@ -30,7 +36,7 @@
 
     font-size: 1em;
     font-weight: 500;
-    border-radius: 3px;
+    border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.6);
     outline: none;
 }
@@ -50,14 +56,22 @@
     font-size: 1.15em;
     font-family: 'Oswald';
     text-transform: uppercase;
-    height: 30px;
+    border-radius: 8px;
+    height: 35px;
+    border: 1px solid rgba(0,0,0,0.3);
+}
 
-    background-color: rgba(0,0,0,0.15);
+.btn-submit-styles {
+    background-color: rgba(255, 131, 31, 0.7);
     border: 1px solid rgba(0,0,0,0.6);
-    border-radius: 3px;
     cursor: pointer;
 
     transition: 0.2s;
+}
+
+.btn-submit-styles:hover {
+    background-color: rgba(255, 40, 23, 0.75);
+
 }
 
 
@@ -68,7 +82,7 @@
 #smll-caract {
     font-size: 1em;
     margin-left: 5px;
-    color: rgba(255, 0, 0, 1);
+    color: rgba(244, 12, 12, 1);
     font-weight: 500;
 }
 .hiden {

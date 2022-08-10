@@ -60,7 +60,7 @@ const Functions = {
         const textAlert = document.querySelector("#smll-caract")
         const submitBtn = document.querySelector("#btn-submit")
         textAlert.classList.add("hiden")    // agrega la clase CSS 'hiden'
-        submitBtn.disabled = true
+        submitBtn.disabled = false
 
         // EVENT LISTENER FOR ENABLE 'FORM BUTTON'
         input.addEventListener('blur', () => {
@@ -70,12 +70,14 @@ const Functions = {
                 // if value is less than 'value'
                 input.classList.add('lessThanThree')    // borde rojo al input
                 textAlert.classList.remove("hiden")     // elimina la clase CSS '.hiden'
+                submitBtn.classList.remove("btn-submit-styles")
                 submitBtn.disabled = true               // desactiva el button
             
             } else{
                 // else value is greater than 'value'
                 input.classList.remove('lessThanThree')
                 textAlert.classList.add("hiden")
+                submitBtn.classList.add("btn-submit-styles")
                 submitBtn.disabled = false
             }
         }) 
