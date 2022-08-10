@@ -1,12 +1,13 @@
 footer {
     /* background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  ); */
-    background-color: rgba(3, 121, 135, 0.7);
+    /* background-color: rgba(3, 121, 135, 0.7); */
+    background-color: rgb(10, 10, 10);
     
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 #desc {
     font-family: 'Oswald';
@@ -41,13 +42,21 @@ footer {
 }
 
 #copyright {
+    color: rgb(173, 173, 173);
     font-size: 0.8em;
     user-select: none;
     text-align: center;
     font-family: 'Osweld';
     padding: 10px 0;
-    background-color: rgba(3, 80, 90, 0.25);
+    background-color: rgb(7, 7, 7);
 }
-
+#copyright a {
+    color: #fff;
+    font-family: 'Oswald';
+    font-weight: 500;
+    font-size: 1em;
+    letter-spacing: 1px;
+    user-select: none;
+}
 
 

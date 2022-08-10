@@ -40,8 +40,8 @@ function Header() {
                         //  IF WEATHER
                         weather !== null ? (
                         <>
-                            <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>  
-                            <img id="weather-icon" src= {weather.current.condition.icon} />                        
+                            <img id="weather-icon" src= {weather.current.condition.icon} />                 
+                            <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>       
                         </>     ) 
 
                         :   // ELSE
@@ -52,10 +52,10 @@ function Header() {
                         { 
                         //  IF DOLAR BLUE
                         bluePrice !== undefined ? (
-                            <p style={{marginLeft: '15px'}}>Dólar Blue: ${bluePrice.blue.value_sell}</p>
+                            <p style={{marginLeft: '25px'}}>Dólar Blue: AR${bluePrice.blue.value_sell}</p>
                         )
                         :   // ELSE
-                        <p style={{marginLeft: '15px'}}>Loading...</p>  
+                        <p style={{marginLeft: '25px'}}>Loading...</p>  
                         }
                     </div>
             </div>
