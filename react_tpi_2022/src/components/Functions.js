@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
 
+//const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+
 const Functions = {
 
     fetchBlue: async (setBlue, url) => {
@@ -15,12 +17,12 @@ const Functions = {
         }
     },
 
-    fetchNews: async (setAllResp, url, setNewsPerPages, newsPerPages) => {
+    fetchNews: async (setAllResp, urlNews  ) => {
             // NEWS API
             try {
                 setAllResp(undefined)
 
-                const response = await fetch(url)
+                const response = await fetch(urlNews)
                 const responseJSON = await response.json()
                 setAllResp(responseJSON)          
 
@@ -51,7 +53,7 @@ const Functions = {
 
     formListener: (states) => {
         const { setSearch, setLanguage, setNewsPerPages, setPagination, navigateMain } = states
-        
+
         const input = document.querySelector("#form-search input")     // selecciono el input del form
         const form = document.querySelector('#form-search')
 
@@ -87,7 +89,9 @@ const Functions = {
             setLanguage( data.language.slice(0, 2) )
             setNewsPerPages(data.pages)
             setPagination(1)    // SET PAGINATION TO 1
-            return navigateMain(`/buscar/${data.search}/${1}`)      // Navigate MAIN component
+
+            navigateMain(`/buscar/${data.search}/${1}`)
+            // return data      // Navigate MAIN component
         })
     },
 

@@ -14,28 +14,26 @@ function Main() {
     const navigateMain = useNavigate()
     const { titleParam, pageParam } = useParams()
     
-    const [search, setSearch] = useState('argentina')
+    const [search, setSearch] = useState(titleParam)
+    const [pagination, setPagination ] = useState(pageParam)
     const [newsPerPages, setNewsPerPages] = useState(12)
-    const [viewing , setViewing ] = useState()
-    const [pagination, setPagination ] = useState(1)
     const [language, setLanguage] = useState('es')
+    const [viewing , setViewing ] = useState()
     const [allResp, setAllResp] = useState()
 
-    const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+    console.log('allResp', allResp);    // ERROR: rendering 6 times
 
-
-
-    // component did mount 
+    
+    
     useEffect( () =>{
-        if (titleParam){     setSearch(titleParam)    }   // if have 'title' from params so set Search with that
-        if (pageParam) {  setPagination(pageParam) }
+        Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination, navigateMain } )
 
-        Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination, pagination, navigateMain } )
-        Functions.fetchNews(setAllResp, urlNews, newsPerPages, setNewsPerPages)   // import SET ALL RESP & PAGES
+        let urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+        Functions.fetchNews(setAllResp, urlNews )
 
-    }, [search, language, newsPerPages, pagination])    // useEffect's dependencies
-    
-    
+    }, [ search, pagination, newsPerPages, language ])    // useEffect's dependencies
+
+
 
     // RETURN MAIN()
     return(
