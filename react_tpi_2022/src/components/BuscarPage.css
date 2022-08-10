@@ -1,17 +1,65 @@
 .home-container{
-    
     z-index: 90;
-    align-content: center;
+    align-content: center; 
     
     width: 90%;
-    margin-top: 8%;
+    margin-top: 12%;
     margin-left: 5%;
+    margin-bottom: 25%;
+    font-family: 'EB Garamond';
+}
+
+#buscar-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
-input {
-    /* width: 40%; */
-    /* font-size: x-large; */
+#buscar-form label {
+    font-size: 2.5em;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+#buscar-form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+
+#buscar-input {
+    width: 80%;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 6px;
+    font-size: x-large;
+    margin-right: 10px;
+    padding-left: 12px;
+}
+
+#buscar-button {
+    background-color: rgba(77, 188, 236, 0.3);
+    padding: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.3);
+    width: 45px;
+    height: 45px;
+    transition: all 0.25s;
+}
+#buscar-button:hover {
+    background-color: rgba(235, 37, 37, 0.7);
+    cursor: pointer;
+}
+
+#buscar-icon { 
+    width: 42px;
+    height: 42px;
+    transition: all 0.23s;
+}
+
+#buscar-icon:hover {
+    transform: scale(1.07, 1.07);
 }
 
 

@@ -3,6 +3,7 @@ import { useEffect } from "react"
 
 import Functions from "./Functions"
 import './BuscarPage.css'
+import searchIcon from '../assets/search-icon.svg'
 
 
 function Home() {
@@ -18,14 +19,20 @@ function Home() {
         <>
             <div className="home-container" >
                 <form id="buscar-form">
-                    <label>Buscar Noticia</label>
-                    <input id='buscar-input' type='search' name="buscar" />
-                    <button type="submit" id="buscar-button">Buscar</button>
+
+                    <label>BUSCAR NOTICIAS</label>
+                    <div>
+                        <input id='buscar-input' type='search' name="buscar" autoFocus />
+                        <button type="submit" id="buscar-button">
+                            <img id="buscar-icon" src={searchIcon} alt="Buscar"  />
+                        </button>
+                    </div>
                 </form>
             </div>
+
         </>
     )
 }
 
 
-export default Home
+export default Home;
