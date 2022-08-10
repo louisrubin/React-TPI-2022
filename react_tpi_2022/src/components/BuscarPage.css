@@ -38,28 +38,45 @@
     padding-left: 12px;
 }
 
+/* submit BUTTON */
+
 #buscar-button {
-    background-color: rgba(77, 188, 236, 0.3);
     padding: 0;
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,0.3);
     width: 45px;
     height: 45px;
+}
+
+.button-styles {
+    background-color: rgba(77, 188, 236, 0.3);
     transition: all 0.25s;
 }
-#buscar-button:hover {
+
+.button-styles:hover {
     background-color: rgba(235, 37, 37, 0.7);
     cursor: pointer;
 }
 
+/* button ICON */
+
 #buscar-icon { 
     width: 42px;
     height: 42px;
-    transition: all 0.23s;
 }
 
-#buscar-icon:hover {
+.icon-styles {
+    transition: all 0.23s;
+}
+.icon-styles:hover {
     transform: scale(1.07, 1.07);
 }
 
+
+
+#span-Alert {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: rgba(244, 12, 12, 1);
+}
 

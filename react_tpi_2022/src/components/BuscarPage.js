@@ -12,7 +12,7 @@ function Home() {
     const navigate = useNavigate()
 
     useEffect( () => {
-        Functions.buscarFormListener( navigate )
+        Functions.buscarFormListener( 'buscar-form', 'buscar-input', 'buscar-button', 'span-Alert', 'buscar-icon' , navigate)
     })
 
     return(
@@ -23,10 +23,11 @@ function Home() {
                     <label>BUSCAR NOTICIAS</label>
                     <div>
                         <input id='buscar-input' type='search' name="buscar" autoFocus />
-                        <button type="submit" id="buscar-button">
-                            <img id="buscar-icon" src={searchIcon} alt="Buscar"  />
+                        <button id="buscar-button" className="button-styles" type="submit">
+                            <img id="buscar-icon" className="icon-styles" src={searchIcon} alt="Buscar"  />
                         </button>
                     </div>
+                    <span id="span-Alert">Mínimo de 3 caracteres</span>
                 </form>
             </div>
 
