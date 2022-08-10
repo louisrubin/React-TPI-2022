@@ -21,22 +21,10 @@ function Footer() {
             </div>
 
             <div id='copyright'>
-                Rubin Azas Miguel Angel Luis - Informatorio Chaco, Etapa 3 (Julio 2022) - <Link to='/about' id='a-aboutMe'>Sobre Mí</Link>
+                Rubin Azas Miguel Angel Luis - Informatorio Chaco, Etapa 3 (Jul-Aug 2022) - <Link to='/about' id='a-aboutMe'>Sobre Mí</Link>
             </div>
         </footer>
     )
 }
- /*
-    
-            
-            <div id='desc'>
-                Esta aplicación web fue realizado por Rubin Azas Miguel A. Luis como proyecto final del cursado
-                "Informatorio Chaco: Especialización Etapa 3 - 2022 A"<br/>
-                Desarrollado con ReactJS durante el mes de julio de 2022.<br/><br/>
-                Más información del proyecto en el repositorio de GitHub.
-                
-            </div>
-
- */
 
 export default Footer;
