@@ -57,9 +57,9 @@ function NewsContainer(props) {
                 <div className='error-div'>
                     <p>ERROR LOADING (Refresh)</p>
 
-                    <code style={styles.code}>status: {allResp.status}</code>
-                    <code style={styles.code}>code: {allResp.code}</code>
-                    <code style={styles.code}>message: {allResp.message}</code>
+                    <code style={styles.code}><b>status:</b> {allResp.status}</code>
+                    <code style={styles.code}><b>code:</b> {allResp.code}</code>
+                    <code style={styles.code}><b>message:</b> {allResp.message}</code>
                 </div>
                 { setViewing(0)    // set Viewing pages to 0 
                 } 
