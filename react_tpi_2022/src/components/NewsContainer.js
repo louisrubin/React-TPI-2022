@@ -4,6 +4,15 @@ import NewsBox from "./NewsBox";
 import NotFound_Results from './NotFound_Results';
 import notFoundicon from '../assets/file-delete.png';
 
+const styles = {
+    code: {
+        display:'block',
+        fontSize: '0.6em',
+        marginBottom: '5px',
+    }
+
+}
+
 function NewsContainer(props) {
     const { search, allResp, setViewing  } = props
     Functions.setTitleFunction(`Buscando '${search}'`)    // set title dynamically
@@ -47,7 +56,10 @@ function NewsContainer(props) {
             <>
                 <div className='error-div'>
                     <p>ERROR LOADING (Refresh)</p>
-                    <small style={{fontSize: '0.6em'}}>code: {allResp.code}</small>
+
+                    <code style={styles.code}>status: {allResp.status}</code>
+                    <code style={styles.code}>code: {allResp.code}</code>
+                    <code style={styles.code}>message: {allResp.message}</code>
                 </div>
                 { setViewing(0)    // set Viewing pages to 0 
                 } 

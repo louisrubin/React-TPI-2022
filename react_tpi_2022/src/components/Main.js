@@ -31,7 +31,7 @@ function Main() {
         
         Functions.fetchNews(setAllResp, urlNews )
 
-    }, [ search, pagination, newsPerPages, language ])    // useEffect's dependencies
+    }, [ urlNews ])    // useEffect's dependencies
 
 
 
@@ -68,4 +68,4 @@ function Main() {
     )
 }
 
-export default Main ;
+export default Main;

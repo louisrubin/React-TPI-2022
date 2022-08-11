@@ -52,6 +52,7 @@
 .div-weather {
     display: flex;
     align-items: center;
+    height: 35px;
 }
 #weather-icon {
     margin-right: 8px;
