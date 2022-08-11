@@ -6,9 +6,7 @@
 
     box-sizing: border-box;
     z-index: 100;
-    /* background-image: linear-gradient( to bottom right, rgb(110, 237, 211), rgb(5, 166, 183)  ); */
     background-color: #161a1d;
-    /* background-image: repeating-linear-gradient(to bottom, rgb(110, 237, 211) 10%,  rgb(5, 166, 183) 10% ); */
     padding: 0 10px 0 20px;
     box-shadow: 0 2px 4px rgba(0,0,0, 0.35);
     
@@ -36,6 +34,9 @@
     margin: 0;
     user-select: none;
 }
+
+/*************   SUB INFO   *************/
+
 #header-sub-info {
     display: flex;
     
@@ -49,18 +50,46 @@
     margin: 0;
     color: #fff;
 }
-.div-weather {
+.div-sub-info {
     display: flex;
     align-items: center;
+    border-radius: 8px;
+    padding: 0 5px;
     height: 35px;
 }
+.div-sub-info:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+}
+
+.div-weather {
+    margin-right: 20px;
+}
+
 #weather-icon {
     margin-right: 8px;
     width: 35px;
     user-select: none;
-    background-color: rgba(214, 217, 218, 0.65);
+    background-color: rgba(214, 217, 218, 0.6);
     border-radius: 16px;
 }
+
+
+
+/*************   SUB MORE INFO   *************/
+
+.more-info {
+    display: block;
+    background-color: #fff;
+    position: relative;
+    left: -100px;
+    width: 200%;
+
+    text-align: center;
+}
+
+
+
 
 @media screen and (max-width: 410px) {
     h1 {

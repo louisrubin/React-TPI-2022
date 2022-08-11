@@ -4,6 +4,23 @@ import Functions from './Functions'
 import { Link } from 'react-router-dom'
 
 
+const showInfoListener = (divFather, divChildren) => {
+    // FUNCTION TO SHOW AND HIDE INFORMATION OF WEATHER AND DOLAR
+    const father = document.getElementById( divFather )
+    const children = document.getElementById( divChildren )
+
+    children.classList.add('hiden')
+    
+    father.addEventListener('click', () => {
+
+        if( children.classList.contains('hiden') ){
+            children.classList.remove('hiden')
+        } else {
+            children.classList.add('hiden')
+        }
+    })
+}
+
 
 
 function Header() {
@@ -18,7 +35,13 @@ function Header() {
     useEffect( () => {
         Functions.fetchWeather(setWeather, urlWeather)     // import FetchApi
         Functions.fetchBlue(setBlue, urlBlue)
+
+        showInfoListener('div-weather', 'more-info-weather')
     }, [])
+
+
+
+    
     
     return(
         <>
@@ -34,30 +57,44 @@ function Header() {
             </div>
             
             <div id="header-sub-info">
-                    <div className="div-weather">
                         
-                        { 
-                        //  IF WEATHER
-                        weather !== null ? (
-                        <>
-                            <img id="weather-icon" src= {weather.current.condition.icon} />                 
-                            <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>       
-                        </>     ) 
+                        <div id='div-weather' style={{height:'35px'}}>
 
-                        :   // ELSE
-                        <p>Loading...</p>   
-                        }
-                        
+                            {   //  IF WEATHER 
+                            weather !== null ? (
+                            <>
+                            <div className='div-sub-info div-weather'>
+                                <img id="weather-icon" src= {weather.current.condition.icon} />                 
+                                <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>
+                            </div>
+                            </>
+                            )
 
-                        { 
-                        //  IF DOLAR BLUE
-                        bluePrice !== undefined ? (
-                            <p style={{marginLeft: '25px'}}>Dólar Blue: AR${bluePrice.blue.value_sell}</p>
-                        )
-                        :   // ELSE
-                        <p style={{marginLeft: '25px'}}>Loading...</p>  
-                        }
-                    </div>
+                            :   // ELSE
+                            <div className='div-sub-info div-weather'>
+                                <p>Loading...</p>   
+                            </div>
+                            }
+
+                            <div id='more-info-weather' className='more-info more-info-weather'>
+                                more-info-weather
+                            </div>
+
+                        </div>
+
+                        <div className='div-sub-info div-dolar'>
+                            { 
+                            //  IF DOLAR BLUE
+                            bluePrice !== undefined ? (
+                                <>
+                                    <p>Dólar Blue: AR${bluePrice.blue.value_sell}</p>
+
+                                </>
+                            )
+                            :   // ELSE
+                            <p>Loading...</p>  
+                            }
+                        </div>
             </div>
         </div>
         </>
