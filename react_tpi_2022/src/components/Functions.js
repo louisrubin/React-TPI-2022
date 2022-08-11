@@ -108,9 +108,12 @@ const Functions = {
         if(iconParam){
             icon = document.getElementById(iconParam)
         }
-
+        
         alertMessage.classList.add("hiden")    // agrega la clase CSS 'hiden'
         submitButton.disabled = true
+        submitButton.classList.remove("button-styles")
+        icon.classList.remove("icon-styles")
+
 
         // EVENT LISTENER FOR ENABLE 'FORM BUTTON'
         input.addEventListener('blur', () => {
