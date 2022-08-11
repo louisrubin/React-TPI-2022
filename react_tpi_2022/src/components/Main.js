@@ -23,12 +23,12 @@ function Main() {
 
     console.log('allResp', allResp);    // ERROR: rendering 6 times
 
-    
+    const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
     
     useEffect( () =>{
         Functions.formListener( {setSearch, setLanguage, setNewsPerPages, setPagination, navigateMain } )
 
-        let urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
+        
         Functions.fetchNews(setAllResp, urlNews )
 
     }, [ search, pagination, newsPerPages, language ])    // useEffect's dependencies
