@@ -21,7 +21,7 @@ function Main() {
     const [viewing , setViewing ] = useState()
     const [allResp, setAllResp] = useState()
 
-    console.log('allResp', allResp);    // ERROR: rendering 6 times
+    // console.log('allResp', allResp);    // ERROR: rendering 6 times
 
     const urlNews = `https://newsapi.org/v2/everything?q=${search}&searchIn=title&sortBy=popularity&pageSize=${newsPerPages}&page=${pagination}&language=${language}&apiKey=3a8f8a50766947e8b6d4633919806d8a`
     

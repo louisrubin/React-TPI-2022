@@ -2,7 +2,7 @@
 import Functions from "./Functions";
 import NewsBox from "./NewsBox";
 import NotFound_Results from './NotFound_Results';
-import notFoundicon from '../assets/file-delete.png';
+import noImageicon from '../assets/no-found-image.svg';
 
 const styles = {
     code: {
@@ -32,7 +32,7 @@ function NewsContainer(props) {
                     viewing += 1    // viewing + 1 for iteration of news
     
                     if (news.urlToImage === null){
-                        news.urlToImage = notFoundicon
+                        news.urlToImage = noImageicon
                     }
                     setViewing(viewing)     // set the 'setViewing' with the final viewing's value
 
