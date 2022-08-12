@@ -92,7 +92,7 @@ const Functions = {
             setNewsPerPages(data.pages)
             setPagination(1)    // SET PAGINATION TO 1
 
-            navigateMain(`/buscar/${data.search}/${1}`)
+            navigateMain(`/buscador/${data.search}/${1}`)
             // return data      // Navigate MAIN component
         })
     },
@@ -146,7 +146,7 @@ const Functions = {
 
             if (navigate){
                 //  if received 'navigate' hook
-                return navigate(`/buscar/${data.buscar}/${1}`)   // return the navigate hook received from params with the value from the from
+                return navigate(`/buscador/${data.buscar}/${1}`)   // return the navigate hook received from params with the value from the from
             }
         })
 

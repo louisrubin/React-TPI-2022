@@ -4,23 +4,26 @@ import Functions from './Functions'
 import { Link } from 'react-router-dom'
 
 
-const showInfoListener = (divFather, divChildren) => {
-    // FUNCTION TO SHOW AND HIDE INFORMATION OF WEATHER AND DOLAR
-    const father = document.getElementById( divFather )
-    const children = document.getElementById( divChildren )
+// DISABLED
+// const clickToShowAndHide = (divFather, divChildren) => {
+//     // FUNCTION TO SHOW AND HIDE INFORMATION IN THIS CASE TO WEATHER AND DOLAR
+//     const father = document.getElementById( divFather )
+//     const children = document.getElementById( divChildren )
 
-    children.classList.add('hiden')
+//     children.classList.add('hiden')
     
-    father.addEventListener('click', () => {
+//     father.addEventListener('click', (e) => {
 
-        if( children.classList.contains('hiden') ){
-            children.classList.remove('hiden')
-        } else {
-            children.classList.add('hiden')
-        }
-    })
-}
+//         if ( children.classList.contains('hiden') ){
+//             children.classList.remove('hiden')
+//         } else {
+//             children.classList.add('hiden')
+//             console.log(e.target);
+//         }
+            
+//     })
 
+// }
 
 
 function Header() {
@@ -36,7 +39,7 @@ function Header() {
         Functions.fetchWeather(setWeather, urlWeather)     // import FetchApi
         Functions.fetchBlue(setBlue, urlBlue)
 
-        showInfoListener('div-weather', 'more-info-weather')
+        // clickToShowAndHide('div-weather', 'more-info-weather')   // DISABLED
     }, [])
 
 
@@ -76,9 +79,9 @@ function Header() {
                             </div>
                             }
 
-                            <div id='more-info-weather' className='more-info more-info-weather'>
+                            {/* <div id='more-info-weather' className='more-info more-info-weather'>
                                 more-info-weather
-                            </div>
+                            </div> */}
 
                         </div>
 

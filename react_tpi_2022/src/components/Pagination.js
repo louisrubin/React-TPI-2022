@@ -13,7 +13,7 @@ function Pagination( {search, pagination, navigateMain, setPagination} ) {
             const newPagination = paginationINT -= 1
             setPagination(newPagination) 
                 // 'navigateMain' function
-            return navigateMain(`/buscar/${search}/${newPagination}`)
+            return navigateMain(`/buscador/${search}/${newPagination}`)
         }
     }
 
@@ -21,7 +21,7 @@ function Pagination( {search, pagination, navigateMain, setPagination} ) {
         const newPagination = paginationINT += 1
         setPagination(newPagination)
         
-        return navigateMain(`/buscar/${search}/${newPagination}`)
+        return navigateMain(`/buscador/${search}/${newPagination}`)
     }
 
     return(

@@ -18,8 +18,8 @@ class App extends Component {
 
 				<Routes>
                     <Route path='/' element={ <Home />} />
-                    <Route path="/buscar" element={ <Home />} />
-                    <Route path="/buscar/:titleParam/:pageParam" element={ <Main />} />
+                    <Route path="/buscador" element={ <Home />} />
+                    <Route path="/buscador/:titleParam/:pageParam" element={ <Main />} />
                     <Route path="/noResults" element={ <NotFound_Results noResults={true} /> } />
                     
                     <Route path="/about" element={ <AboutMe /> } />

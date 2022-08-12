@@ -26,7 +26,7 @@ function NotFound_Results( { noResults } ) {
             <img id='img-notFound' src={img} />
             <p>{messageP}</p>
             
-            <Link to='/buscar'>Back to Home</Link>
+            <Link to='/buscador'>Back to Home</Link>
         </div>
     )
 } 
