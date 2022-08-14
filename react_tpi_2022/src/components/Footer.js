@@ -15,7 +15,7 @@ function Footer() {
                 <a href='https://github.com/louisrubin' target="_blank">
                     <img src={gh} />
                 </a>
-                <a href='coming-soon' target="_blank">
+                <a href='https://youtu.be/RDEJdB61sxs' target="_blank">
                     <img src={yt} />
                 </a>
             </div>
