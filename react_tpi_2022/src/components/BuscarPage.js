@@ -21,6 +21,7 @@ function Home() {
                 <form id="buscar-form">
 
                     <label>BUSCAR NOTICIAS</label>
+                    <label>Testing new branch</label>
                     <div>
                         <input id='buscar-input' type='search' name="buscar" autoFocus />
                         <button id="buscar-button" className="button-styles" type="submit">
