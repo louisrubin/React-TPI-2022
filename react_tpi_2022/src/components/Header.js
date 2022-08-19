@@ -41,7 +41,7 @@ function Header() {
     const urlBlue = 'https://api.bluelytics.com.ar/v2/latest'
     const [weather, setWeather ] = useState(null)
     const [bluePrice, setBlue ] = useState()
-    console.log(weather);
+    console.log(bluePrice);
     
 
     // USE EFFECT
@@ -50,6 +50,7 @@ function Header() {
         Functions.fetchBlue(setBlue, urlBlue)
 
         hover('div-main-weather', 'more-info-weather', 'hiden')
+        hover('div-main-dolar', 'more-info-dolar', 'hiden')
         // clickToShowAndHide('div-weather', 'more-info-weather')   // DISABLED
     }, [])
 
@@ -65,64 +66,102 @@ function Header() {
         
         <div id="header">
             <div id='over'>
-                <Link to='/' id='main-title'>
+                <Link to='/'>
                     INFOR-NEWS
                 </Link>
             </div>
             
             <div id="header-sub-info">
                         
-                        <div id='div-main-weather' >
-
+                    <div id='div-main-weather' >
+                        
+                        <div className='div-sub-info div-weather'>
                             {   //  IF WEATHER 
                             weather !== null ? (
                             <>
-                                <div className='div-sub-info div-weather'>
-                                    <img id="weather-icon" src= {weather.current.condition.icon} />                 
-                                    <p>{weather.location.name} ( { String(weather.current.temp_c).slice(0,2) }°C )</p>
-                                </div>
+                                <img alt='Weather Icon' src= {weather.current.condition.icon} />                 
+                                <p>{weather.location.name} ( { String(weather.current.temp_c).slice(0,2) }°C )</p>
+                            </>
+                            )
+                            :   // ELSE
+                                <p>(Error) Loading...</p>
+                            }
+                        </div>
+                        
+
+                        <div id='more-info-weather' className='more-info more-info-weather hiden'>
+                            {   //  IF WEATHER 
+                            weather !== null ? (
+                            <>
+                                <img id='img-bg-more-info-wather' alt='Weather Icon' src={weather.current.condition.icon} />
+                                <p> <b>{weather.location.region}, {weather.location.name} (hoy)</b> </p>
+                                <p> <b>Temperatura</b> {weather.current.temp_c}°C</p>
+                                <p> <b>Lluvia</b> {weather.current.precip_in}%</p>
+                                <p> <b>Humedad</b> {weather.current.humidity}%</p>
+
+                                <small style={{fontSize: '10px'}}>Ult. act: {weather.current.last_updated}hs</small>
                             </>
                             )
 
                             :   // ELSE
-                            <div className='div-sub-info div-weather'>
-                                <p>Loading...</p>   
-                            </div>
+                                <p>(Error) Loading...</p>
                             }
-
-                            <div id='more-info-weather' className='more-info more-info-weather hiden'>
-                                {   //  IF WEATHER 
-                                weather !== null ? (
-                                <>
-                                    <img id='img-bg-more-info-wather' src={weather.current.condition.icon} />
-                                    <p> <b>{weather.location.region}, {weather.location.name} (hoy)</b> </p>
-                                    <p> <b>Temperatura</b> {weather.current.temp_c}°C</p>
-                                    <p> <b>Lluvia</b> {weather.current.precip_in}%</p>
-                                    <p> <b>Humedad</b> {weather.current.humidity}%</p>
-                                    <small style={{fontSize: '10px'}}>Ult. act: {weather.current.last_updated}</small>
-                                </>
-                                )
-
-                                :   // ELSE
-                                    <p>Loading...</p>
-                                }
-                            </div>
-
                         </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div id='div-main-dolar' style={{ marginLeft: '20px'}} >
 
                         <div className='div-sub-info div-dolar'>
                             { 
                             //  IF DOLAR BLUE
                             bluePrice !== undefined ? (
-                                <>
-                                    <p>Dólar Blue: AR${bluePrice.blue.value_sell}</p>
+                                <p>Dólar Blue: AR${bluePrice.blue.value_sell}</p>
 
+                            )
+                            :   // ELSE
+                                <p>(Error) Loading...</p> 
+                            }     
+                        </div>
+                
+
+                        <div id='more-info-dolar' className='more-info hiden'>
+                            { 
+                            //  IF DOLAR BLUE
+                            bluePrice !== undefined ? (
+                                <>
+                                    <div id='full-info-BLUE' className='full-info'>
+                                        <p style={{marginBottom: '10px'}}> <b className='b-title-dolar'>DOLAR BLUE</b> </p>
+                                        <p> <b>Promedio</b> AR${bluePrice.blue.value_avg}</p>
+                                        <p> <b>Venta</b> AR${bluePrice.blue.value_sell}</p>
+                                        <p> <b>Compra</b> AR${bluePrice.blue.value_buy}</p>
+                                    </div>
+                                    
+                                    <hr />
+                                    
+                                    <div id='full-info-OFICIAL' className='full-info'>
+                                        <p style={{marginBottom: '10px'}}> <b className='b-title-dolar'>DOLAR OFICIAL</b> </p>
+                                        <p> <b>Promedio</b> AR${bluePrice.oficial.value_avg}</p>
+                                        <p> <b>Venta</b> AR${bluePrice.oficial.value_sell}</p>
+                                        <p> <b>Compra</b> AR${bluePrice.oficial.value_buy}</p>
+                                    </div>
+
+                                    <small style={{fontSize: '10px'}}>Ult. act: { Functions.transformDate(bluePrice.last_update) }</small>
                                 </>
                             )
                             :   // ELSE
-                            <p>Loading...</p>  
+                                <p>(Error) Loading...</p>
                             }
+
                         </div>
+
+                    </div>
+                        
             </div>
         </div>
         </>

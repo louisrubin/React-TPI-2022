@@ -13,25 +13,18 @@
 }
 #over {
     display: flex;
-    align-items: center;
     width: 100%;
     justify-content: center;
 }
+
 #header a {
     font-family: 'Oswald';
     font-weight: 700;
-    font-size: 2.3em;
-    letter-spacing: 3px;
-    user-select: none;
-    color: #fff;
-}
-
-#main-title {
-    font-family: 'EB Garamond';
     font-size: 2.5em;
-    font-weight: 700;
+    color: #fff;
     text-decoration: none;
-    margin: 0;
+
+    letter-spacing: 3px;
     user-select: none;
 }
 
@@ -45,29 +38,30 @@
 }
 #header-sub-info p {
     font-family: 'Oswald';
-    font-size: 1em;
-    font-weight: 400;
     margin: 0;
-    color: #fff;
 }
+
+#div-main-weather, #div-main-dolar {
+    height: 35px;
+    width: 15%;
+}
+
 .div-sub-info {
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 8px;
     padding: 0 5px;
     height: 35px;
+    color: #fff;
 }
 .div-sub-info:hover {
     background-color: rgba(255, 255, 255, 0.07);
     cursor: pointer;
 }
 
-#div-main-weather {
-    margin-right: 20px;
-    height: 35px;
-}
 
-#weather-icon {
+.div-weather img {
     margin-right: 8px;
     width: 35px;
     user-select: none;
@@ -79,28 +73,52 @@
 
 /*************   SUB MORE INFO   *************/
 
+
+
 .more-info {
+    position: relative;
+    left: -10px;
+    width: 120%;
+
     display: block;
     background-color: rgb(10, 10, 10);
-    position: relative;
-    left: -20px;
-    width: 120%;
+    color: #fff;
     border-radius: 8px;
     box-shadow: 1px 2px 6px 2px rgba(0,0,0, 0.45);
-
     padding-bottom: 15px;
 
     text-align: center;
+
+    letter-spacing: 1px;
+    word-spacing: 3px;
 }
 
-#more-info-weather {
+#more-info-dolar p {
     font-size: 0.9em;
-    color: #fff;
 }
-#more-info-weather img {
+#more-info-dolar {
+    padding-top: 10%;
+}
+
+
+#more-info-dolar hr {
+    margin: 6% 0;
+}
+
+.more-info p {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.more-info-weather img {
     user-select: none;
 }
 
+
+.b-title-dolar {
+    font-size: 1.6em;
+    margin-bottom: 35px;
+}
 
 
 
