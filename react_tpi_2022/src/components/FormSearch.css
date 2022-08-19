@@ -87,9 +87,6 @@
     color: rgba(244, 12, 12, 1);
     font-weight: 500;
 }
-.hiden {
-    display: none;
-}
 
 @media screen and (max-width: 410px) {
     #btn-submit {

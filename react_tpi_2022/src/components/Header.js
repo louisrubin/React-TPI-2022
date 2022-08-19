@@ -25,6 +25,15 @@ import { Link } from 'react-router-dom'
 
 // }
 
+const hover = (divFather, divChildren, className) => {
+    // FUNCTION TO SHOW AND HIDE INFORMATION IN THIS CASE TO WEATHER AND DOLAR
+    const father = document.getElementById( divFather )
+    const children = document.getElementById( divChildren )
+
+    father.addEventListener("mouseover", (event) => { children.classList.remove(className) })
+    father.addEventListener("mouseout", (event) => { children.classList.add(className) })
+}
+
 
 function Header() {
 
@@ -32,6 +41,7 @@ function Header() {
     const urlBlue = 'https://api.bluelytics.com.ar/v2/latest'
     const [weather, setWeather ] = useState(null)
     const [bluePrice, setBlue ] = useState()
+    console.log(weather);
     
 
     // USE EFFECT
@@ -39,6 +49,7 @@ function Header() {
         Functions.fetchWeather(setWeather, urlWeather)     // import FetchApi
         Functions.fetchBlue(setBlue, urlBlue)
 
+        hover('div-main-weather', 'more-info-weather', 'hiden')
         // clickToShowAndHide('div-weather', 'more-info-weather')   // DISABLED
     }, [])
 
@@ -61,15 +72,15 @@ function Header() {
             
             <div id="header-sub-info">
                         
-                        <div id='div-weather' style={{height:'35px'}}>
+                        <div id='div-main-weather' >
 
                             {   //  IF WEATHER 
                             weather !== null ? (
                             <>
-                            <div className='div-sub-info div-weather'>
-                                <img id="weather-icon" src= {weather.current.condition.icon} />                 
-                                <p>{weather.location.name} - { String(weather.current.temp_c).slice(0,2) }°C</p>
-                            </div>
+                                <div className='div-sub-info div-weather'>
+                                    <img id="weather-icon" src= {weather.current.condition.icon} />                 
+                                    <p>{weather.location.name} ( { String(weather.current.temp_c).slice(0,2) }°C )</p>
+                                </div>
                             </>
                             )
 
@@ -79,9 +90,23 @@ function Header() {
                             </div>
                             }
 
-                            {/* <div id='more-info-weather' className='more-info more-info-weather'>
-                                more-info-weather
-                            </div> */}
+                            <div id='more-info-weather' className='more-info more-info-weather hiden'>
+                                {   //  IF WEATHER 
+                                weather !== null ? (
+                                <>
+                                    <img id='img-bg-more-info-wather' src={weather.current.condition.icon} />
+                                    <p> <b>{weather.location.region}, {weather.location.name} (hoy)</b> </p>
+                                    <p> <b>Temperatura</b> {weather.current.temp_c}°C</p>
+                                    <p> <b>Lluvia</b> {weather.current.precip_in}%</p>
+                                    <p> <b>Humedad</b> {weather.current.humidity}%</p>
+                                    <small style={{fontSize: '10px'}}>Ult. act: {weather.current.last_updated}</small>
+                                </>
+                                )
+
+                                :   // ELSE
+                                    <p>Loading...</p>
+                                }
+                            </div>
 
                         </div>
 

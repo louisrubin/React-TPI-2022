@@ -11,6 +11,10 @@
     margin-left: 5%;
 }
 
+.hiden {
+    display: none;
+}
+
 .box-news {
     border-radius: 6px;
     width: 23%;
