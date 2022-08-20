@@ -95,9 +95,14 @@
 
 #more-info-dolar p {
     font-size: 0.9em;
+    margin-bottom: 3px;
 }
 #more-info-dolar {
     padding-top: 10%;
+}
+
+#more-info-weather p {
+    margin-bottom: 3px;
 }
 
 
@@ -105,11 +110,6 @@
     margin: 6% 0;
 }
 
-.more-info p {
-    font-size: 1em;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
 .more-info-weather img {
     user-select: none;
 }
@@ -118,8 +118,15 @@
 .b-title-dolar {
     font-size: 1.6em;
     margin-bottom: 35px;
+    text-decoration: underline;
 }
 
+.code-info {
+    background-color: #353a3d;
+    border-radius: 4px;
+    padding: 0 3px;
+    font-weight: 400;
+}
 
 
 @media screen and (max-width: 410px) {

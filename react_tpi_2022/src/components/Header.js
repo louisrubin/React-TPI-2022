@@ -94,17 +94,17 @@ function Header() {
                             weather !== null ? (
                             <>
                                 <img id='img-bg-more-info-wather' alt='Weather Icon' src={weather.current.condition.icon} />
-                                <p> <b>{weather.location.region}, {weather.location.name} (hoy)</b> </p>
-                                <p> <b>Temperatura</b> {weather.current.temp_c}°C</p>
-                                <p> <b>Lluvia</b> {weather.current.precip_in}%</p>
-                                <p> <b>Humedad</b> {weather.current.humidity}%</p>
+                                <p> <b>{weather.location.region}, {weather.location.name} (hoy)</b>  </p>
+                                <p> <b>Temperatura</b> <b className='code-info'>{weather.current.temp_c}°C</b>  </p>
+                                <p> <b>Lluvia</b> <b className='code-info'>{weather.current.precip_in}%</b>  </p>
+                                <p> <b>Humedad</b> <b className='code-info'>{weather.current.humidity}%</b>  </p>
 
                                 <small style={{fontSize: '10px'}}>Ult. act: {weather.current.last_updated}hs</small>
                             </>
                             )
 
                             :   // ELSE
-                                <p>(Error) Loading...</p>
+                                <p style={{paddingTop: '10%'}}>(Error) Something went wrong. Loading...</p>
                             }
                         </div>
 
@@ -137,25 +137,25 @@ function Header() {
                                 <>
                                     <div id='full-info-BLUE' className='full-info'>
                                         <p style={{marginBottom: '10px'}}> <b className='b-title-dolar'>DOLAR BLUE</b> </p>
-                                        <p> <b>Promedio</b> AR${bluePrice.blue.value_avg}</p>
-                                        <p> <b>Venta</b> AR${bluePrice.blue.value_sell}</p>
-                                        <p> <b>Compra</b> AR${bluePrice.blue.value_buy}</p>
+                                        <p> <b>Promedio</b> <b className='code-info'>AR${bluePrice.blue.value_avg}</b>  </p>
+                                        <p> <b>Venta</b> <b className='code-info'>AR${bluePrice.blue.value_sell}</b>  </p>
+                                        <p> <b>Compra</b> <b className='code-info'>AR${bluePrice.blue.value_buy}</b>  </p>
                                     </div>
                                     
                                     <hr />
                                     
                                     <div id='full-info-OFICIAL' className='full-info'>
                                         <p style={{marginBottom: '10px'}}> <b className='b-title-dolar'>DOLAR OFICIAL</b> </p>
-                                        <p> <b>Promedio</b> AR${bluePrice.oficial.value_avg}</p>
-                                        <p> <b>Venta</b> AR${bluePrice.oficial.value_sell}</p>
-                                        <p> <b>Compra</b> AR${bluePrice.oficial.value_buy}</p>
+                                        <p> <b>Promedio</b> <b className='code-info'>AR${bluePrice.oficial.value_avg}</b>  </p>
+                                        <p> <b>Venta</b> <b className='code-info'>AR${bluePrice.oficial.value_sell}</b>  </p>
+                                        <p> <b>Compra</b> <b className='code-info'>AR${bluePrice.oficial.value_buy}</b>  </p>
                                     </div>
 
                                     <small style={{fontSize: '10px'}}>Ult. act: { Functions.transformDate(bluePrice.last_update) }</small>
                                 </>
                             )
                             :   // ELSE
-                                <p>(Error) Loading...</p>
+                                <p>(Error) Something went wrong. Loading...</p>
                             }
 
                         </div>
