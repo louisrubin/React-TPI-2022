@@ -60,6 +60,9 @@
     cursor: pointer;
 }
 
+.div-weather p, .div-dolar p {
+    font-size: 1.1em;
+}
 
 .div-weather img {
     margin-right: 8px;
