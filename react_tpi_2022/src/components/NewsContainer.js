@@ -63,6 +63,22 @@ function NewsContainer(props) {
                 </div>
                 { setViewing(0)    // set Viewing pages to 0 
                 } 
+            
+
+                {
+                allResp.code === 'corsNotAllowed' ? (
+                    
+                    <div className='error-div'>
+                        <code style={{fontSize: '0.65em'}}>
+                        Lo siento, pero esta API de noticias en el plan actual (gratuita) solo
+                        permite su uso en localhost y no en producción, como en este caso :(
+                        </code>
+                    </div>
+                )
+                :
+                    null
+                }
+
             </>
         )
     }
