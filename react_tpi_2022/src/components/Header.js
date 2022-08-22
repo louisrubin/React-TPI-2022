@@ -4,28 +4,8 @@ import Functions from './Functions'
 import { Link } from 'react-router-dom'
 
 
-// DISABLED
-// const clickToShowAndHide = (divFather, divChildren) => {
-//     // FUNCTION TO SHOW AND HIDE INFORMATION IN THIS CASE TO WEATHER AND DOLAR
-//     const father = document.getElementById( divFather )
-//     const children = document.getElementById( divChildren )
 
-//     children.classList.add('hiden')
-    
-//     father.addEventListener('click', (e) => {
-
-//         if ( children.classList.contains('hiden') ){
-//             children.classList.remove('hiden')
-//         } else {
-//             children.classList.add('hiden')
-//             console.log(e.target);
-//         }
-            
-//     })
-
-// }
-
-const hover = (divFather, divChildren, className) => {
+const ShowAndHide = (divFather, divChildren, className) => {
     // FUNCTION TO SHOW AND HIDE INFORMATION IN THIS CASE TO WEATHER AND DOLAR
     const father = document.getElementById( divFather )
     const children = document.getElementById( divChildren )
@@ -41,7 +21,6 @@ function Header() {
     const urlBlue = 'https://api.bluelytics.com.ar/v2/latest'
     const [weather, setWeather ] = useState(null)
     const [bluePrice, setBlue ] = useState()
-    console.log(bluePrice);
     
 
     // USE EFFECT
@@ -49,8 +28,8 @@ function Header() {
         Functions.fetchWeather(setWeather, urlWeather)     // import FetchApi
         Functions.fetchBlue(setBlue, urlBlue)
 
-        hover('div-main-weather', 'more-info-weather', 'hiden')
-        hover('div-main-dolar', 'more-info-dolar', 'hiden')
+        ShowAndHide('div-main-weather', 'more-info-weather', 'hiden')
+        ShowAndHide('div-main-dolar', 'more-info-dolar', 'hiden')
         // clickToShowAndHide('div-weather', 'more-info-weather')   // DISABLED
     }, [])
 

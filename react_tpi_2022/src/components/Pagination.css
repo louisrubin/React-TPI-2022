@@ -36,3 +36,47 @@
 
     cursor: auto;
 }
+
+
+@media screen and (max-width: 2000px) {
+
+    .pagination-container {
+        margin-bottom: 10%;
+    }
+    
+}
+
+@media screen and (max-width: 1400px) {
+
+    .pagination-container {
+        margin-bottom: 15%;
+    }
+    
+}
+
+
+@media screen and (max-width: 1100px) {
+
+    .pagination-container {
+        margin-bottom: 15%;
+    }
+    
+}
+
+
+@media screen and ( max-width: 800px) {
+
+    .pagination-container {
+        margin-bottom: 22%;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .pagination-container {
+        margin-bottom: 35%;
+    }
+    
+}
